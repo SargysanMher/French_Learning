@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="UsingOnClickInXml"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="ContentDescription,MissingConstraints,NotSiblings">
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="50sp"
+            android:id="@+id/french_learning"
+                android:textColor="@color/red"
+                android:text="@string/french_learning">
+
+        </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintTop_toBottomOf="@id/french_learning"
+                android:id="@+id/view">
+
+            </View>
+
+
+
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="house"
+                        android:id="@+id/home"
+                        app:layout_constraintTop_toBottomOf="@id/view"
+                        android:src="@drawable/house"
+
+                        >
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        app:layout_constraintTop_toBottomOf="@id/home"
+                        android:onClick="animals"
+                        android:id="@+id/animals"
+                        android:src="@drawable/animals">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        app:layout_constraintTop_toBottomOf="@id/animals"
+                        android:onClick="person"
+                        android:id="@+id/person"
+                        android:src="@drawable/person">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="clothes"
+                        app:layout_constraintTop_toBottomOf="@id/person"
+                        android:id="@+id/clothes"
+                        android:src="@drawable/clothes">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="school"
+                        android:id="@+id/school"
+                        app:layout_constraintTop_toBottomOf="@id/clothes"
+                        android:src="@drawable/school">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="food"
+                        app:layout_constraintTop_toBottomOf="@id/school"
+                        android:id="@+id/food"
+                        android:src="@drawable/food">
+
+                    </ImageView>
+
+
+
+
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="seasons"
+                        app:layout_constraintTop_toBottomOf="@id/view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:id="@+id/seasons"
+                        android:src="@drawable/seasons">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="professions"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/seasons"
+                        android:id="@+id/professions"
+                        android:src="@drawable/professions">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="character"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/professions"
+                        android:id="@+id/character"
+                        android:src="@drawable/character">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/character"
+                        android:onClick="travel"
+                        android:id="@+id/travel"
+                        android:src="@drawable/travel">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:onClick="nature"
+                        app:layout_constraintTop_toBottomOf="@id/travel"
+                        android:id="@+id/nature"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:src="@drawable/nature">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:id="@+id/tecknology"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/nature"
+                        android:onClick="technique"
+                        android:src="@drawable/technique">
+
+                    </ImageView>
+
+
+
+
+
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clothes"
+            app:layout_constraintBottom_toBottomOf="@id/clothes"
+            app:layout_constraintEnd_toEndOf="@id/clothes"
+            android:textSize="40sp"
+            android:id="@+id/clothes_string"
+            android:textStyle="bold|italic"
+            android:textColor="@color/red"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/clothes"
+            app:layout_constraintTop_toTopOf="@id/clothes" />
+        <TextView
+            android:id="@+id/stars_of_clothes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/clothes"
+            app:layout_constraintStart_toStartOf="@id/clothes"
+            app:layout_constraintTop_toBottomOf="@id/clothes_string">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@id/tecknology"
+            android:textSize="40sp"
+            android:textColor="@color/orange"
+            android:id="@+id/tecknology_string"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintEnd_toEndOf="@id/tecknology"
+            app:layout_constraintStart_toStartOf="@id/tecknology"
+            app:layout_constraintTop_toTopOf="@id/tecknology"
+            android:text="@string/technique" />
+        <TextView
+            android:id="@+id/stars_of_technique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/tecknology"
+            app:layout_constraintStart_toStartOf="@id/tecknology"
+            app:layout_constraintTop_toBottomOf="@id/tecknology_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/character"
+            app:layout_constraintEnd_toEndOf="@id/character"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:id="@+id/character_string"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/character"
+            app:layout_constraintTop_toTopOf="@id/character"
+            android:layout_height="wrap_content"
+            android:text="@string/character" />
+        <TextView
+            android:id="@+id/stars_of_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/character"
+            app:layout_constraintStart_toStartOf="@id/character"
+            app:layout_constraintTop_toBottomOf="@id/character_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/travel"
+            app:layout_constraintEnd_toEndOf="@id/travel"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:id="@+id/travel_string"
+            android:textColor="@color/red"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/travel"
+            app:layout_constraintTop_toTopOf="@id/travel"
+            android:text="@string/travel" />
+        <TextView
+            android:id="@+id/stars_of_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/travel"
+            app:layout_constraintStart_toStartOf="@id/travel"
+            app:layout_constraintTop_toBottomOf="@id/travel_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/nature"
+            android:id="@+id/nature_string"
+            app:layout_constraintEnd_toEndOf="@id/nature"
+            android:textSize="40sp"
+            android:textColor="@color/red"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/nature"
+            app:layout_constraintTop_toTopOf="@id/nature"
+            android:text="@string/nature" />
+        <TextView
+            android:id="@+id/stars_of_nature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/nature"
+            app:layout_constraintStart_toStartOf="@id/nature"
+            app:layout_constraintTop_toBottomOf="@id/nature_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/seasons"
+
+            app:layout_constraintEnd_toEndOf="@id/seasons"
+            android:textSize="40sp"
+            android:textColor="@color/yellow"
+            android:id="@+id/seasons_string"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/seasons"
+            app:layout_constraintTop_toTopOf="@id/seasons"
+            android:text="@string/seasons"
+
+             />
+        <TextView
+            android:id="@+id/stars_of_seasons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/seasons"
+            app:layout_constraintStart_toStartOf="@id/seasons"
+            app:layout_constraintTop_toBottomOf="@id/seasons_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/home"
+            app:layout_constraintEnd_toEndOf="@id/home"
+            app:layout_constraintStart_toStartOf="@id/home"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:id="@+id/house"
+            android:textColor="@color/yellow"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintTop_toTopOf="@id/home"
+            android:text="@string/house" />
+
+        <TextView
+            android:id="@+id/stars_of_house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/home"
+            app:layout_constraintStart_toStartOf="@id/home"
+            app:layout_constraintTop_toBottomOf="@id/house">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/food"
+            app:layout_constraintEnd_toEndOf="@id/food"
+            app:layout_constraintStart_toStartOf="@id/food"
+            app:layout_constraintTop_toTopOf="@id/food"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:id="@+id/food_string"
+            android:textColor="@color/orange"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:text="@string/food" />
+        <TextView
+            android:id="@+id/stars_of_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/food"
+            app:layout_constraintStart_toStartOf="@id/food"
+            app:layout_constraintTop_toBottomOf="@id/food_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/person"
+            app:layout_constraintEnd_toEndOf="@id/person"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            android:id="@+id/person_string"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintStart_toStartOf="@id/person"
+            app:layout_constraintTop_toTopOf="@id/person"
+            android:text="@string/person" />
+        <TextView
+            android:id="@+id/stars_of_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/person"
+            app:layout_constraintStart_toStartOf="@id/person"
+            app:layout_constraintTop_toBottomOf="@id/person_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/yellow"
+            android:id="@+id/professions_string"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintBottom_toBottomOf="@id/professions"
+            app:layout_constraintEnd_toEndOf="@id/professions"
+            app:layout_constraintStart_toStartOf="@id/professions"
+            app:layout_constraintTop_toTopOf="@id/professions"
+            android:text="@string/professions" />
+        <TextView
+            android:id="@+id/stars_of_professions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/professions"
+            app:layout_constraintStart_toStartOf="@id/professions"
+            app:layout_constraintTop_toBottomOf="@id/professions_string">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/school"
+            android:textColor="@color/red"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@id/school"
+            app:layout_constraintEnd_toEndOf="@id/school"
+            android:id="@+id/school_string"
+            app:layout_constraintStart_toStartOf="@id/school"
+            android:textStyle="bold|italic"
+            app:layout_constraintTop_toTopOf="@id/school" />
+        <TextView
+            android:id="@+id/stars_of_school"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/school"
+            app:layout_constraintStart_toStartOf="@id/school"
+            app:layout_constraintTop_toBottomOf="@id/school_string">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:textColor="@color/yellow"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            app:layout_constraintBottom_toBottomOf="@id/animals"
+            android:textStyle="bold|italic"
+            android:id="@+id/animals_string"
+            app:layout_constraintEnd_toEndOf="@id/animals"
+            app:layout_constraintStart_toStartOf="@id/animals"
+            app:layout_constraintTop_toTopOf="@id/animals"
+            android:text="@string/animals" />
+        <TextView
+            android:id="@+id/stars_of_animals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/animals"
+            app:layout_constraintStart_toStartOf="@id/animals"
+            app:layout_constraintTop_toBottomOf="@id/animals_string">
+
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

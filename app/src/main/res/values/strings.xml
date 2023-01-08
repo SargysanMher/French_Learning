@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">French Learning</string>
+    <string name="french_learning">FRENCH LEARNING</string>
+    <string name="seasons">seasons</string>
+    <string name="nature">nature</string>
+    <string name="travel">travelling</string>
+    <string name="character">character</string>
+    <string name="technique">technique</string>
+    <string name="clothes">clothes</string>
+    <string name="house">house</string>
+    <string name="food">food</string>
+    <string name="person">person</string>
+    <string name="professions">professions</string>
+    <string name="school">school</string>
+    <string name="animals">animals</string>
+    <string name="translate_the_word_into_french">translate the word into french</string>
+    <string name="hint">hint</string>
+    <string name="check">check</string>
+    <string name="next">next</string>
+    <string name="you_correctly_translated">you correctly translated </string>
+    <string name="words_out_of">words out of</string>
+    <string name="back_to_main_menu">back to main menu</string>
+    <string name="restart">restart</string>
+</resources>

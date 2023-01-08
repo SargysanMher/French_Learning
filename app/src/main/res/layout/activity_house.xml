@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Themes">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="menu"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/x"
+            android:textSize="20sp"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="/"
+            android:textSize="20sp"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/y"
+            android:layout_height="wrap_content">
+        </TextView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/view"
+        android:layout_height="250sp"
+        tools:ignore="MissingConstraints">
+
+    </View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/translate_the_word_into_french"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/text"
+            android:layout_height="match_parent"
+            android:text=""
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </View>
+        <EditText
+            android:layout_width="match_parent"
+            android:minWidth="100dp"
+            android:inputType="textNoSuggestions"
+            android:id="@+id/edittext"
+            android:maxWidth="250dp"
+            android:layout_height="wrap_content">
+
+        </EditText>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/checked"
+            android:layout_weight="1">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/hint"
+            android:id="@+id/hint"
+            android:layout_height="wrap_content"
+            tools:ignore="UsingOnClickInXml">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/check"
+            android:id="@+id/check"
+            android:layout_height="wrap_content"
+            tools:ignore="UsingOnClickInXml">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/next"
+            android:id="@+id/next"
+            android:layout_height="wrap_content"
+            tools:ignore="UsingOnClickInXml">
+
+        </Button>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginBottom="50dp">
+
+    </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
