@@ -10,8 +10,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 import java.lang.*;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
+
 public class Themes extends AppCompatActivity {
     String french="";
     int i = 0; int hint1 =0;int j=1;
@@ -31,67 +39,79 @@ public class Themes extends AppCompatActivity {
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
         EditText editText = findViewById(R.id.edittext);
+        try {
+            InputStream fis =  getResources().openRawResource(R.raw.school);
+
+            Workbook wb = new HSSFWorkbook(fis);
+            String r = wb.getSheetAt(0).getRow(0).getCell(0).getStringCellValue();
+            Log.d("iskander", r );
+        } catch (FileNotFoundException e) {
+            Log.d("iskander", "che blyat chexav " + e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("theme");
         Map<String,String> map = null;
 
         ///////////////////////////////////////////
         Map<String,String> House = new HashMap<>();
-        House.put("house","дом");
-        House.put("pencil","карандаш");
-        House.put("pen","ручка");
-        House.put("book","книга");
-        House.put("boy","парень");
+        House.put("house","une maison");
+        House.put("door","une porte");
+        House.put("bedroom","une chambre");
+        House.put("bathroom","une salle de bain");
+        House.put("table","une table");
         if(which_theme==1){
             map = new HashMap<>(House);
         }
         ///////////////////////////////////////////
         Map<String,String> Animals = new HashMap<>();
-        Animals.put("animals","дом");
-        Animals.put("pencil","карандаш");
-        Animals.put("pen","ручка");
-        Animals.put("book","книга");
-        Animals.put("boy","парень");
+        Animals.put("animals","des animaux");
+        Animals.put("cow","une vache");
+        Animals.put("goat(f)","une chèvre");
+        Animals.put("giraffe","une girafe");
+        Animals.put("cat(m)","un chat");
         if(which_theme==2) {
             map = new HashMap<>(Animals);
         }
         ///////////////////////////////////////////
         Map<String,String> Person = new HashMap<>();
-        Person.put("person","дом");
-        Person.put("pencil","карандаш");
-        Person.put("pen","ручка");
-        Person.put("book","книга");
-        Person.put("boy","парень");
+        Person.put("person","une personne");
+        Person.put("head","une tête");
+        Person.put("hand","une main");
+        Person.put("girl","une fille");
+        Person.put("boy","un garçon");
         if(which_theme==3) {
             map = new HashMap<>(Person);
         }
         ///////////////////////////////////////////
         Map<String,String> Clothes = new HashMap<>();
-        Clothes.put("clothes","дом");
-        Clothes.put("pencil","карандаш");
-        Clothes.put("pen","ручка");
-        Clothes.put("book","книга");
-        Clothes.put("boy","парень");
+        Clothes.put("clothes","des vêtements");
+        Clothes.put("trouser","un pantalon");
+        Clothes.put("skirt","une jupe");
+        Clothes.put("the tailor","un tailleur");
+        Clothes.put("gylet","un gylet");
         if(which_theme==11) {
             map = new HashMap<>(Clothes);
         }
         ///////////////////////////////////////////
         Map<String,String> School = new HashMap<>();
-        School.put("school","дом");
-        School.put("pencil","карандаш");
-        School.put("pen","ручка");
-        School.put("book","книга");
-        School.put("boy","парень");
+        School.put("school","une école");
+        School.put("pencil","un crayon");
+        School.put("pen","un stylo");
+        School.put("book","un livre");
+        School.put("cafeteria","une cantine");
         if(which_theme==10) {
             map = new HashMap<>(School);
         }
         ///////////////////////////////////////////
         Map<String,String> Food = new HashMap<>();
-        Food.put("food","дом");
-        Food.put("pencil","карандаш");
-        Food.put("pen","ручка");
-        Food.put("book","книга");
-        Food.put("boy","парень");
+        Food.put("food","une nourriture");
+        Food.put("apple","une pomme");
+        Food.put("banana","une banane");
+        Food.put("carrot","une carotte");
+        Food.put("strawberry","une fraise");
         if(which_theme==9) {
             map = new HashMap<>(Food);
         }
@@ -217,6 +237,7 @@ public class Themes extends AppCompatActivity {
                     }
                     Intent intent = new Intent(Themes.this,Finish.class);
                     intent.putExtra("result",i);
+                    intent.putExtra("which_theme",which_theme);
                     intent.putExtra("size",House.size());
                     intent.putExtra("hint", hint1);
                     startActivity(intent);
