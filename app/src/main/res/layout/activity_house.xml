@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="menu"
+        android:onClick="showPopup"
         android:textSize="20sp"
         tools:ignore="MissingConstraints">
 

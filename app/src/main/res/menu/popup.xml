@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/back"
+        android:title="back to main menu"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/restart"
+        android:title="restart"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/change_language"
+        android:title="change_language"
+        tools:ignore="HardcodedText" />
+</menu>
