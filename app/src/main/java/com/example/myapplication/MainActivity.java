@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String stars[]= new String[]{"stars_of_housed.txt","stars_of_animals.txt","stars_of_person.txt","stars_of_technique.txt","stars_of_nature.txt","stars_of_travel.txt","stars_of_character.txt","stars_of_professions.txt","stars_of_food.txt", "stars_of_school.txt","stars_of_clothes.txt","stars_of_seasons.txt"};
+        String stars[]= new String[]{"stars_of_housedp.txt","stars_of_animals.txt","stars_of_person.txt","stars_of_technique.txt","stars_of_nature.txt","stars_of_travel.txt","stars_of_character.txt","stars_of_professions.txt","stars_of_food.txt", "stars_of_school.txt","stars_of_clothes.txt","stars_of_seasons.txt"};
         TextView place_of_stars_of_house = findViewById(R.id.stars_of_house);
         TextView place_of_stars_of_animals = findViewById(R.id.stars_of_animals);
         TextView place_of_stars_of_person = findViewById(R.id.stars_of_person);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         }
         switch (which_theme){
             case 1:
-                FILE_NAME = "stars_of_house.txt";
+                FILE_NAME = "stars_of_housedp.txt";
                 FILE_NAME_hint = "hints_of_house.txt";
                 break;
             case 2:
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if(which_theme!=-1) {
+        if(which_theme==-1) {
             if(extras == null) {
                 try {
                     fin = openFileInput(FILE_NAME_hint);

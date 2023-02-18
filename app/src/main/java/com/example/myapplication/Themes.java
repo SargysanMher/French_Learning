@@ -24,10 +24,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     String french="";
-    int i = 0; int hint1 =0;int j=1;int row = 0;
+    int i = 0; int hint1 =0;int j=1;int row;int y_size=0;
     Button next,hint,check;
     String word_from_edittext;
-
+    ArrayList<Integer> Random_words_eng;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -47,47 +47,40 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("theme");
 
-        x.setText(String.valueOf(row+1));
+        x.setText(String.valueOf(1));
         InputStream fis =  getResources().openRawResource(R.raw.school);
 
-        Workbook wb = null;
+        final Workbook[] wb = {null};
         try {
-            wb = new HSSFWorkbook(fis);
+            wb[0] = new HSSFWorkbook(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Sheet sheet = wb.getSheetAt(which_theme - 1);
+        Sheet sheet = wb[0].getSheetAt(which_theme - 1);
 
         y.setText(String.valueOf(sheet.getLastRowNum()+1));
-        int y_size=sheet.getLastRowNum()+1;
+        y_size=sheet.getLastRowNum()+1;
 
         try {
             fis =  getResources().openRawResource(R.raw.school);
-
-            wb = new HSSFWorkbook(fis);
-
-
+            wb[0] = new HSSFWorkbook(fis);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayList<Integer> Random_words_eng = new ArrayList<>(y_size);
-        int row = (int)(Math.random() * y_size );
-        String eng = wb.getSheetAt(which_theme-1).getRow(row).getCell(0).getStringCellValue();
-        String ru = wb.getSheetAt(which_theme-1).getRow(row).getCell(1).getStringCellValue();
-        String fr = wb.getSheetAt(which_theme-1).getRow(row).getCell(2).getStringCellValue();
-        text.setText(eng);
-        Random_words_eng.add(row);
-        Log.d("iskander", eng );
-        Log.d("iskander", fr );
-        Log.d("iskander", ru );
+        Random_words_eng = new ArrayList<>(y_size);
+        final int[] row = {(int) (Math.random() * y_size)};
+        final String[] eng = {wb[0].getSheetAt(which_theme - 1).getRow(row[0]).getCell(0).getStringCellValue()};
+        final String[] ru = {wb[0].getSheetAt(which_theme - 1).getRow(row[0]).getCell(1).getStringCellValue()};
+        final String[] fr = {wb[0].getSheetAt(which_theme - 1).getRow(row[0]).getCell(2).getStringCellValue()};
+        text.setText(eng[0]);
+        Random_words_eng.add(row[0]);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 Workbook wb = null;
-                if (sheet.getRow(row).getCell(0).getStringCellValue() != null) {
+                if (Random_words_eng.size()!=y_size) {
                     InputStream fis = getResources().openRawResource(R.raw.school);
 
                     wb = null;
@@ -109,19 +102,17 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     }
 
 
+                    word_from_edittext=editText.getText().toString();
 
-
-
-                    String eng = wb.getSheetAt(which_theme - 1).getRow(row).getCell(0).getStringCellValue();
-                    Log.d("iskander", eng);
-                    String ru = wb.getSheetAt(which_theme - 1).getRow(row).getCell(1).getStringCellValue();
-                    String fr = sheet.getRow(row).getCell(2).getStringCellValue();
-                    text.setText(eng);
-                    word_from_edittext = editText.getText().toString();
-                    editText.setText("");
-                    if (word_from_edittext.equals(fr)) {
+                    if (word_from_edittext.equals(fr[0])) {
                         i++;
                     }
+                     eng[0] = sheet.getRow(row).getCell(0).getStringCellValue();
+                    ru[0] = sheet.getRow(row).getCell(1).getStringCellValue();
+                    fr[0] = sheet.getRow(row).getCell(2).getStringCellValue();
+                    text.setText(eng[0]);
+                    editText.setText("");
+
 
 
 
@@ -129,78 +120,76 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
                     j = 2;
 
-                    assert wb != null;
-                    Sheet sheet = wb.getSheetAt(which_theme - 1);
                     x.setText(String.valueOf(Random_words_eng.size()));
                     y.setText(String.valueOf(sheet.getLastRowNum()+1));
-                    Workbook finalWb = wb;
                     int finalRow = row;
                     hint.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(Themes.this, finalWb.getSheetAt(which_theme - 1).getRow(finalRow).getCell(2).getStringCellValue(), Toast.LENGTH_SHORT).show();
+                          textView.setText(sheet.getRow(finalRow).getCell(2).getStringCellValue());
                         }
                     });
                     checked.setText("");
                     textView.setText("");
+                    int finalRow1 = row;
+                    check.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            word_from_edittext=editText.getText().toString();
+                            if(word_from_edittext.equals(sheet.getRow(finalRow1).getCell(2).getStringCellValue())){
+                                checked.setText("✅");
 
+
+                            }else{
+
+                                checked.setText("❌");
+
+
+
+                            }
+
+                        }
+                    });
                 } else {
 
-                    x.setText(String.valueOf(row));
                     word_from_edittext = editText.getText().toString();
-
-                    if (word_from_edittext.equals(wb.getSheetAt(which_theme - 1).getRow(row).getCell(2).getStringCellValue())) {
+                    row[0] = Random_words_eng.get(Random_words_eng.size()-1);
+                    if (word_from_edittext.equals(sheet.getRow(row[0]).getCell(2).getStringCellValue())) {
                         i++;
                     }
+
                     Intent intent = new Intent(Themes.this, Finish.class);
                     intent.putExtra("result", i);
                     intent.putExtra("which_theme", which_theme);
-                    intent.putExtra("size", sheet.getLastRowNum());
+                    intent.putExtra("size", sheet.getLastRowNum()+1);
                     intent.putExtra("hint", hint1);
                     startActivity(intent);
                     finish();
-                    editText.setText("");
+
 
 
                 }
-                Workbook finalWb1 = wb;
-                hint.setOnClickListener(new View.OnClickListener() {
-                    @SuppressLint("SuspiciousIndentation")
-                    @Override
-                    public void onClick(View v) {
-                        textView.setText(finalWb1.getSheetAt(which_theme - 1).getRow(row).getCell(2).getStringCellValue());
-                        if (j == 2)
-                            hint1++;
-                        j = 3;
-                    }
-
-
-                });
 
             }
 
 
         });
-        Workbook finalWb = wb;
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                textView.setText(finalWb.getSheetAt(which_theme - 1).getRow(row).getCell(2).getStringCellValue());
+                textView.setText(sheet.getRow(row[0]).getCell(2).getStringCellValue());
                 if(j==1) {
                     hint1++;
-                    j=2;
-                }else{
-                    j=2;
                 }
+                j=2;
             }
         });
-        Workbook finalWb1 = wb;
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 word_from_edittext=editText.getText().toString();
-                if(word_from_edittext.equals(finalWb1.getSheetAt(which_theme - 1).getRow(row).getCell(2).getStringCellValue())){
+                if(word_from_edittext.equals(sheet.getRow(row[0]).getCell(2).getStringCellValue())){
                     checked.setText("✅");
 
 
@@ -243,7 +232,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 return true;
 
             case R.id.restart:
-                row=0;
+                Random_words_eng.clear();
+                row = (int)(Math.random() * y_size );
+                Button next = this.next;
+                next.callOnClick();
                 return true;
             default:
                 return false;
