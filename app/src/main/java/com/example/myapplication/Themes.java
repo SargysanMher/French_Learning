@@ -78,7 +78,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                j=1;
                 Workbook wb = null;
                 if (Random_words_eng.size()!=y_size) {
                     InputStream fis = getResources().openRawResource(R.raw.school);
@@ -107,7 +107,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     if (word_from_edittext.equals(fr[0])) {
                         i++;
                     }
-                     eng[0] = sheet.getRow(row).getCell(0).getStringCellValue();
+                    eng[0] = sheet.getRow(row).getCell(0).getStringCellValue();
                     ru[0] = sheet.getRow(row).getCell(1).getStringCellValue();
                     fr[0] = sheet.getRow(row).getCell(2).getStringCellValue();
                     text.setText(eng[0]);
@@ -118,7 +118,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
 
 
-                    j = 2;
+
 
                     x.setText(String.valueOf(Random_words_eng.size()));
                     y.setText(String.valueOf(sheet.getLastRowNum()+1));
@@ -127,6 +127,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                         @Override
                         public void onClick(View v) {
                           textView.setText(sheet.getRow(finalRow).getCell(2).getStringCellValue());
+                          if(j==1){
+                              hint1++;
+                              j=2;
+                          }
                         }
                     });
                     checked.setText("");
