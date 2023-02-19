@@ -306,4 +306,5 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
+
 }

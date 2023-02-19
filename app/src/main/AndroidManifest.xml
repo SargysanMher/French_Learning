@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".Themes"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
