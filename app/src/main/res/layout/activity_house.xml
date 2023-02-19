@@ -122,13 +122,17 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:text="@string/hint"
-            android:id="@+id/hint"
+            android:text="@string/answer"
+            android:id="@+id/answer"
             android:layout_height="wrap_content"
             tools:ignore="UsingOnClickInXml">
 
         </Button>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
 
+        </View>
         <Button
             android:layout_width="wrap_content"
             android:text="@string/check"
@@ -137,7 +141,24 @@
             tools:ignore="UsingOnClickInXml">
 
         </Button>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
 
+        </View>
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/hint"
+            android:id="@+id/hint"
+            android:layout_height="wrap_content"
+            tools:ignore="UsingOnClickInXml">
+
+        </Button>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
+
+        </View>
         <Button
             android:layout_width="wrap_content"
             android:text="@string/next"
@@ -146,6 +167,7 @@
             tools:ignore="UsingOnClickInXml">
 
         </Button>
+
 
     </LinearLayout>
     <TextView

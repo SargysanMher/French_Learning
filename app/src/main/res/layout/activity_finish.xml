@@ -73,6 +73,26 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/answers"
+                android:textSize="30sp"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/answers_used"
+                android:id="@+id/answer"
+                android:textSize="30sp"
+
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
                 android:id="@+id/hints"
                 android:textSize="30sp"
                 android:textColor="@color/red"
@@ -80,7 +100,7 @@
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="hints used"
+                android:text="@string/hints_used"
                 android:id="@+id/hint"
                 android:textSize="30sp"
 
@@ -106,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mistake"
-                android:text="mistakes"
+                android:text="@string/mistakes"
 
                 android:textSize="30sp">
 
@@ -127,7 +147,7 @@
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="right answers"
+                android:text="@string/right_answers"
                 android:textSize="30sp"
                 android:layout_height="wrap_content">
             </TextView>
@@ -146,12 +166,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textSize="20sp"
-                android:text="your result for this theme is"
+                android:text="@string/your_result_for_this_theme_is"
                 android:layout_height="wrap_content">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/stars"
+                android:textColor="@color/orange"
                 android:textSize="20sp"
                 android:layout_height="wrap_content">
             </TextView>

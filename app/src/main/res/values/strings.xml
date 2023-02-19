@@ -21,4 +21,10 @@
     <string name="words_out_of">words out of</string>
     <string name="back_to_main_menu">back to main menu</string>
     <string name="restart">restart</string>
+    <string name="answer">answer</string>
+    <string name="mistakes">mistakes</string>
+    <string name="right_answers">right answers</string>
+    <string name="your_result_for_this_theme_is">your result for this theme is</string>
+    <string name="hints_used">hints used</string>
+    <string name="answers_used">answers_used</string>
 </resources>

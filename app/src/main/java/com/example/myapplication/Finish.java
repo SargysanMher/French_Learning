@@ -26,6 +26,7 @@ public class Finish extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
         Bundle extras = getIntent().getExtras();
+        int answer = extras.getInt("answer");
         int which_theme = extras.getInt("which_theme");
         int result = extras.getInt("result");
         int hint = extras.getInt("hint");
@@ -135,14 +136,20 @@ public class Finish extends AppCompatActivity {
         TextView score1 = findViewById(R.id.score1);
         score.setText(" "+String.valueOf(result)+" ");
         score1.setText(" "+String.valueOf(size));
+        TextView answers = findViewById(R.id.answers);
+        if(answer==0||answer==1){
+            TextView answer1 = findViewById(R.id.answer);
+            answer1.setText("answer used");
+        }
+        answers.setText(String.valueOf(hint)+" ");
         TextView hints = findViewById(R.id.hints);
-        if(hint==0){
+        if(hint==0||hint==1){
             TextView hint1 = findViewById(R.id.hint);
             hint1.setText("hint used");
         }
         hints.setText(String.valueOf(hint)+" ");
         TextView mistakes = findViewById(R.id.mistakes);
-        if(size-result==0){
+        if(size-result==0||size-result==1){
             TextView mistake = findViewById(R.id.mistake);
             mistake.setText("mistake");
         }
@@ -223,7 +230,7 @@ public class Finish extends AppCompatActivity {
                         else if(element<100){
                             stars2=2;
                         }
-                        else if(element==100&hint==0){
+                        else if(element==100&hint==0&answer==0){
                             stars2=3;
                         }
                         else{
