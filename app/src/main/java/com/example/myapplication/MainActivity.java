@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         String stars[]= new String[]{"stars_of_housedp.txt","stars_of_animals.txt","stars_of_person.txt","stars_of_technique.txt","stars_of_nature.txt","stars_of_travel.txt","stars_of_character.txt","stars_of_professions.txt","stars_of_food.txt", "stars_of_school.txt","stars_of_clothes.txt","stars_of_seasons.txt"};
         TextView place_of_stars_of_house = findViewById(R.id.stars_of_house);
         TextView place_of_stars_of_animals = findViewById(R.id.stars_of_animals);

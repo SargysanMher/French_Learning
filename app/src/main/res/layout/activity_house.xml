@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/nkar"
     android:layout_height="match_parent"
     tools:context=".Themes">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="menu"
+    <ImageView
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintWidth_percent="0.07"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+
+        android:src="@drawable/menu"
         android:onClick="showPopup"
-        android:textSize="20sp"
         tools:ignore="MissingConstraints">
 
-    </TextView>
+    </ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,20 +28,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/x"
-            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_height="wrap_content">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:text="/"
-            android:textSize="20sp"
+            android:id="@+id/slash"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_height="wrap_content">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
-            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/y"
             android:layout_height="wrap_content">
         </TextView>
@@ -47,19 +50,21 @@
     <View
         android:layout_width="match_parent"
         android:id="@+id/view"
-        android:layout_height="100sp"
+        android:layout_height="0sp"
+        app:layout_constraintHeight_percent="0.2"
         tools:ignore="MissingConstraints">
 
     </View>
 
     <TextView
-        android:layout_width="match_parent"
         android:text="@string/translate_the_word_into_french"
         app:layout_constraintTop_toBottomOf="@id/view"
-        android:textSize="30sp"
+        app:autoSizeTextType="uniform"
         android:gravity="center"
-        android:textColor="@color/red"
-        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        app:layout_constraintHeight_percent="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
         tools:ignore="MissingConstraints">
 
     </TextView>
@@ -96,7 +101,6 @@
             android:minWidth="100dp"
             android:inputType="textNoSuggestions"
             android:id="@+id/edittext"
-            android:maxWidth="250dp"
             android:layout_height="wrap_content">
 
         </EditText>
@@ -124,38 +128,47 @@
             android:layout_width="wrap_content"
             android:text="@string/answer"
             android:id="@+id/answer"
+            app:autoSizeTextType="uniform"
+            android:backgroundTint="@color/blue"
+
             android:layout_height="wrap_content"
             tools:ignore="UsingOnClickInXml">
 
         </Button>
         <View
-            android:layout_width="20dp"
+            android:layout_width="10dp"
             android:layout_height="match_parent">
 
         </View>
         <Button
             android:layout_width="wrap_content"
             android:text="@string/check"
+            app:autoSizeTextType="uniform"
             android:id="@+id/check"
+            android:backgroundTint="@color/blue"
+
             android:layout_height="wrap_content"
             tools:ignore="UsingOnClickInXml">
 
         </Button>
         <View
-            android:layout_width="20dp"
+            android:layout_width="10dp"
             android:layout_height="match_parent">
 
         </View>
         <Button
             android:layout_width="wrap_content"
             android:text="@string/hint"
+            app:autoSizeTextType="uniform"
+            android:backgroundTint="@color/blue"
+
             android:id="@+id/hint"
             android:layout_height="wrap_content"
             tools:ignore="UsingOnClickInXml">
 
         </Button>
         <View
-            android:layout_width="20dp"
+            android:layout_width="10dp"
             android:layout_height="match_parent">
 
         </View>
@@ -163,6 +176,8 @@
             android:layout_width="wrap_content"
             android:text="@string/next"
             android:id="@+id/next"
+            app:autoSizeTextType="uniform"
+            android:backgroundTint="@color/blue"
             android:layout_height="wrap_content"
             tools:ignore="UsingOnClickInXml">
 

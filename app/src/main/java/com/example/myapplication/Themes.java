@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,11 +42,32 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         answer = findViewById(R.id.answer);
         TextView text = findViewById(R.id.text);
         TextView x = findViewById(R.id.x);
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+        int DeviceTotalWidth = metrics.widthPixels;
+        int DeviceTotalHeight = metrics.heightPixels;
         TextView y = findViewById(R.id.y);
+        TextView slash = findViewById(R.id.slash);
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
         EditText editText = findViewById(R.id.edittext);
-
+        text.setTextSize(DeviceTotalWidth/40);
+        editText.setMaxWidth(DeviceTotalWidth/20);
+        editText.setWidth(DeviceTotalWidth/3);
+        editText.setTextSize(DeviceTotalWidth/40);
+        textView.setTextSize(DeviceTotalWidth/40);
+        checked.setTextSize(DeviceTotalWidth/40);
+        x.setTextSize(DeviceTotalWidth/50);
+        y.setTextSize(DeviceTotalWidth/50);
+        slash.setTextSize(DeviceTotalWidth/50);
+        answer.setWidth(DeviceTotalWidth/5);
+        answer.setHeight(DeviceTotalHeight/20);
+        check.setWidth(DeviceTotalWidth/5);
+        check.setHeight(DeviceTotalHeight/20);
+        hint.setWidth(DeviceTotalWidth/5);
+        hint.setHeight(DeviceTotalHeight/20);
+        next.setWidth(DeviceTotalWidth/5);
+        next.setHeight(DeviceTotalHeight/20);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("theme");
 
