@@ -95,12 +95,23 @@
                         android:src="@drawable/food">
 
                     </ImageView>
-
-
-
-
-
                     <ImageView
+                        android:layout_width="match_parent"
+
+                        android:layout_height="150dp"
+                        android:onClick="ALL"
+                        app:layout_constraintTop_toBottomOf="@id/food"
+                        android:id="@+id/All"
+                        android:src="@drawable/all">
+
+                    </ImageView>
+
+
+
+
+
+
+        <ImageView
                         android:layout_width="180dp"
                         android:layout_height="150dp"
                         android:onClick="seasons"

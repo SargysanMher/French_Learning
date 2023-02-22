@@ -242,4 +242,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("theme",12);
         startActivity(intent);
     }
+
+    public void ALL(View view) {
+        Intent intent = new Intent(MainActivity.this, Themes.class);
+        intent.putExtra("theme",0);
+        startActivity(intent);
+    }
 }

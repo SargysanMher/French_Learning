@@ -176,6 +176,12 @@
                 android:textSize="20sp"
                 android:layout_height="wrap_content">
             </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tokos"
+                android:textSize="20sp"
+                android:layout_height="wrap_content">
+            </TextView>
         </LinearLayout>
 
     </LinearLayout>

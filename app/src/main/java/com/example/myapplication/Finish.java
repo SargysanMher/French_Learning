@@ -188,6 +188,8 @@ public class Finish extends AppCompatActivity {
 
             stars1.setText(stars);
         }
+        TextView tokos = findViewById(R.id.tokos);
+        tokos.setText(String.valueOf(counter1)+"%");
         Button button=findViewById(R.id.back);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

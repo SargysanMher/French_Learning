@@ -86,6 +86,7 @@
             android:textSize="20sp"
             android:id="@+id/text"
             android:layout_height="match_parent"
+
             android:text=""
             tools:ignore="MissingConstraints">
 
