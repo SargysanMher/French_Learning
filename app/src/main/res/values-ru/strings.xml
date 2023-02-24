@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Изучение французского</string>
+    <string name="french_learning">ИЗУЧЕНИЕ ФРАНЦУЗСКОГО</string>
+    <string name="seasons">сезоны</string>
+    <string name="nature">природа</string>
+    <string name="travel">путешествовие</string>
+    <string name="character">характер</string>
+    <string name="technique">техника</string>
+    <string name="clothes">одежда</string>
+    <string name="house">дом</string>
+    <string name="food">еда</string>
+    <string name="person">человек</string>
+    <string name="professions">профессия</string>
+    <string name="school">школа</string>
+    <string name="animals">животные</string>
+    <string name="translate_the_word_into_french">перевести слово на французский</string>
+    <string name="hint">подсказка</string>
+    <string name="check">проверить</string>
+    <string name="next">следующее</string>
+    <string name="you_correctly_translated">вы правильно перевели </string>
+    <string name="words_out_of">слова из</string>
+    <string name="back_to_main_menu">назад в главное меню</string>
+    <string name="restart">рестарт</string>
+    <string name="answer">ответ</string>
+    <string name="mistakes">ошибки</string>
+    <string name="right_answers">правильнэ ответы</string>
+    <string name="your_result_for_this_theme_is">ваш результат для этой темы </string>
+    <string name="hints_used">подсказок использовано</string>
+    <string name="answers_used">ответов использовано</string>
+    <string name="vocabulary">слоаврь</string>
+    <string name="sentence">предложение</string>
+
+</resources>

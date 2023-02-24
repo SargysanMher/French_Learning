@@ -27,4 +27,6 @@
     <string name="your_result_for_this_theme_is">your result for this theme is</string>
     <string name="hints_used">hints used</string>
     <string name="answers_used">answers_used</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="sentence">sentence</string>
 </resources>

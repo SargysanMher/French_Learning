@@ -258,12 +258,12 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/clothes"
             app:layout_constraintBottom_toBottomOf="@id/clothes"
             app:layout_constraintEnd_toEndOf="@id/clothes"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:id="@+id/clothes_string"
             android:textStyle="bold|italic"
             android:textColor="@color/red"
@@ -274,7 +274,6 @@
             android:id="@+id/stars_of_clothes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/clothes"
             app:layout_constraintStart_toStartOf="@id/clothes"
@@ -283,11 +282,11 @@
         </TextView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@id/tecknology"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textColor="@color/orange"
             android:id="@+id/tecknology_string"
             style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
@@ -299,7 +298,6 @@
             android:id="@+id/stars_of_technique"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/tecknology"
             app:layout_constraintStart_toStartOf="@id/tecknology"
@@ -307,10 +305,10 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             app:layout_constraintBottom_toBottomOf="@id/character"
             app:layout_constraintEnd_toEndOf="@id/character"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textColor="@color/black"
             android:textStyle="bold|italic"
             android:id="@+id/character_string"
@@ -323,7 +321,6 @@
             android:id="@+id/stars_of_character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/character"
             app:layout_constraintStart_toStartOf="@id/character"
@@ -331,11 +328,11 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/travel"
             app:layout_constraintEnd_toEndOf="@id/travel"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/travel_string"
             android:textColor="@color/red"
@@ -347,7 +344,6 @@
             android:id="@+id/stars_of_travel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/travel"
             app:layout_constraintStart_toStartOf="@id/travel"
@@ -355,13 +351,13 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:textStyle="bold|italic"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/nature"
             android:id="@+id/nature_string"
             app:layout_constraintEnd_toEndOf="@id/nature"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textColor="@color/red"
             style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
             app:layout_constraintStart_toStartOf="@id/nature"
@@ -371,7 +367,6 @@
             android:id="@+id/stars_of_nature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/nature"
             app:layout_constraintStart_toStartOf="@id/nature"
@@ -379,13 +374,13 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:textStyle="bold|italic"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/seasons"
 
             app:layout_constraintEnd_toEndOf="@id/seasons"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textColor="@color/yellow"
             android:id="@+id/seasons_string"
             style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
@@ -398,7 +393,6 @@
             android:id="@+id/stars_of_seasons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/seasons"
             app:layout_constraintStart_toStartOf="@id/seasons"
@@ -406,12 +400,12 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/home"
             app:layout_constraintEnd_toEndOf="@id/home"
             app:layout_constraintStart_toStartOf="@id/home"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/house"
             android:textColor="@color/yellow"
@@ -423,7 +417,6 @@
             android:id="@+id/stars_of_house"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/home"
             app:layout_constraintStart_toStartOf="@id/home"
@@ -431,13 +424,13 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/food"
             app:layout_constraintEnd_toEndOf="@id/food"
             app:layout_constraintStart_toStartOf="@id/food"
             app:layout_constraintTop_toTopOf="@id/food"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/food_string"
             android:textColor="@color/black"
@@ -447,7 +440,6 @@
             android:id="@+id/stars_of_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:textColor="@color/orange"
             app:layout_constraintEnd_toEndOf="@id/food"
             app:layout_constraintStart_toStartOf="@id/food"
@@ -455,11 +447,11 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/person"
             app:layout_constraintEnd_toEndOf="@id/person"
-            android:textSize="40sp"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             android:id="@+id/person_string"
@@ -527,7 +519,7 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:textColor="@color/yellow"
@@ -535,8 +527,8 @@
             app:layout_constraintBottom_toBottomOf="@id/animals"
             android:textStyle="bold|italic"
             android:id="@+id/animals_string"
-            app:layout_constraintEnd_toEndOf="@id/animals"
-            app:layout_constraintStart_toStartOf="@id/animals"
+            app:layout_constraintRight_toRightOf="@id/animals"
+            app:layout_constraintLeft_toLeftOf="@id/animals"
             app:layout_constraintTop_toTopOf="@id/animals"
             android:text="@string/animals" />
         <TextView

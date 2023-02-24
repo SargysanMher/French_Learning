@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Start">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:id="@+id/french_learning"
+        app:layout_constraintTop_toBottomOf="@id/rules"
+        android:textColor="@color/red"
+        android:text="@string/french_learning"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <ImageView
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        app:layout_constraintHeight_percent="0.1"
+        android:id="@+id/rules"
+        android:onClick="rules"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.1"
+        android:src="@drawable/rules"
+        tools:ignore="MissingConstraints">
+
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/language"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:src="@drawable/language"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintRight_toLeftOf="@id/rules"
+        app:layout_constraintWidth_percent="0.1"
+        tools:ignore="MissingConstraints">
+
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/view"
+        app:layout_constraintHeight_percent="0.4"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/vocabulary"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:text="@string/vocabulary"
+        android:onClick="vocabulary"
+        app:layout_constraintHeight_percent="0.1"
+        android:background="@color/gray"
+        android:textColor="@color/red"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/view1"
+        app:layout_constraintTop_toBottomOf="@id/vocabulary"
+        app:layout_constraintHeight_percent="0.1"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:id="@+id/sentence"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:text="@string/sentence"
+        app:layout_constraintHeight_percent="0.1"
+        android:background="@color/gray"
+        android:textColor="@color/red"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
