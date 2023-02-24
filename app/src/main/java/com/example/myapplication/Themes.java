@@ -112,6 +112,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             @Override
             public void onClick(View v) {
                 j=1;
+                n=1;
                 InputStream fis =  getResources().openRawResource(R.raw.school);
 
                 Workbook wb = null;
@@ -135,8 +136,11 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                         eng[0] = sheet[0].getRow(row).getCell(0).getStringCellValue();
 
                         if (Random_words_eng.contains(eng[0])){
-                            sheet[0] = wb.getSheetAt((int) (Math.random() * 12) );
-                            y_size= sheet[0].getLastRowNum()+1;
+                            if(which_theme==0){
+                                sheet[0] = wb.getSheetAt((int) (Math.random() * 12) );
+                                y_size= sheet[0].getLastRowNum()+1;
+                            }
+
 
                             row = (int)(Math.random() * y_size );
 
@@ -248,7 +252,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             public void onClick(View v) {
 
                 textView.setText(finalSheet1.getRow(row[0]).getCell(2).getStringCellValue());
-                if(j==n) {
+                if(n==1) {
                     answer1++;
                 }
                 n=2;

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,6 +27,11 @@ public class Finish extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
         Bundle extras = getIntent().getExtras();
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+        int DeviceTotalWidth = metrics.widthPixels;
+        int DeviceTotalHeight = metrics.heightPixels;
+
         int answer = extras.getInt("answer");
         int which_theme = extras.getInt("which_theme");
         int result = extras.getInt("result");
@@ -139,24 +145,32 @@ public class Finish extends AppCompatActivity {
         TextView answers = findViewById(R.id.answers);
         if(answer==0||answer==1){
             TextView answer1 = findViewById(R.id.answer);
+            answer1.setTextSize(DeviceTotalWidth/40);
+
             answer1.setText("answer used");
         }
-        answers.setText(String.valueOf(hint)+" ");
+        answers.setText(String.valueOf(answer)+" ");
         TextView hints = findViewById(R.id.hints);
+        hints.setTextSize(DeviceTotalWidth/40);
         if(hint==0||hint==1){
             TextView hint1 = findViewById(R.id.hint);
+            hint1.setTextSize(DeviceTotalWidth/40);
             hint1.setText("hint used");
         }
         hints.setText(String.valueOf(hint)+" ");
         TextView mistakes = findViewById(R.id.mistakes);
+        mistakes.setTextSize(DeviceTotalWidth/40);
         if(size-result==0||size-result==1){
             TextView mistake = findViewById(R.id.mistake);
+            mistake.setTextSize(DeviceTotalWidth/40);
             mistake.setText("mistake");
         }
         mistakes.setText(String.valueOf(size-result) + " ");
         TextView right = findViewById(R.id.right_answers);
+        right.setTextSize(DeviceTotalWidth/40);
         right.setText(String.valueOf(result)+" ");
         TextView stars1 = findViewById(R.id.stars);
+        stars1.setTextSize(DeviceTotalWidth/50);
         int counter1 =(int) result*100/size;
         if(counter1<100/3){
             stars = " ✰✰✰";
@@ -189,8 +203,13 @@ public class Finish extends AppCompatActivity {
             stars1.setText(stars);
         }
         TextView tokos = findViewById(R.id.tokos);
+        tokos.setTextSize(DeviceTotalWidth/50);
         tokos.setText(String.valueOf(counter1)+"%");
         Button button=findViewById(R.id.back);
+        TextView your = findViewById(R.id.your_result);
+        your.setTextSize(DeviceTotalWidth/50);
+        button.setHeight(DeviceTotalHeight/15);
+        button.setWidth(DeviceTotalWidth/3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -265,6 +284,17 @@ public class Finish extends AppCompatActivity {
             }
         });
         Button restart=findViewById(R.id.restart);
+        restart.setHeight(DeviceTotalHeight/15);
+        restart.setWidth(DeviceTotalWidth/3);
+        answers.setTextSize(DeviceTotalWidth/40);
+//        View view2 = findViewById(R.id.view2);
+//        view2.setMinimumWidth(DeviceTotalWidth/9);
+//        View view3 = findViewById(R.id.view3);
+//        view3.setMinimumWidth(DeviceTotalWidth/9);
+//        View view4 = findViewById(R.id.view4);
+//        view4.setMinimumWidth(DeviceTotalWidth/9);
+
+
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
