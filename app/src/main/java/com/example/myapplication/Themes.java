@@ -5,7 +5,10 @@ import static java.lang.Thread.sleep;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.DisplayMetrics;
@@ -26,7 +29,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     String french="";
-    int i = 0; int hint1 =0;int j=1;int row;int y_size=0;int y_size1=0;int answer1;int char2;int n = 0;
+    int i = 0; int hint1 =0;int j=1;int row;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
     StringBuilder hint2;String letters;
     Button next,hint,check,answer;
     String word_from_edittext;
@@ -36,6 +39,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_house);
         hint = findViewById(R.id.hint);
         next = findViewById(R.id.next);
@@ -48,6 +52,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         int DeviceTotalWidth = metrics.widthPixels;
         int DeviceTotalHeight = metrics.heightPixels;
         TextView y = findViewById(R.id.y);
+
         TextView slash = findViewById(R.id.slash);
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
@@ -69,6 +74,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         hint.setHeight(DeviceTotalHeight/20);
         next.setWidth(DeviceTotalWidth/5);
         next.setHeight(DeviceTotalHeight/20);
+        next.setMaxLines(1);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("theme");
         x.setText(String.valueOf(1));
@@ -105,8 +111,12 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         final String[] eng = {sheet[0].getRow(row[0]).getCell(0).getStringCellValue()};
         final String[] ru = {sheet[0].getRow(row[0]).getCell(1).getStringCellValue()};
         final String[] fr = {sheet[0].getRow(row[0]).getCell(2).getStringCellValue()};
-        text.setText(eng[0]);
-        Random_words_eng.add(eng[0]);
+        if(Locale.getDefault().getLanguage().equals("en")){
+            text.setText(eng[0]);
+
+        }else{
+            text.setText(ru[0]);
+        }        Random_words_eng.add(eng[0]);
         Sheet finalSheet = sheet[0];
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,8 +167,12 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
                     fr[0] = sheet[0].getRow(row).getCell(2).getStringCellValue();
                     ru[0] = sheet[0].getRow(row).getCell(1).getStringCellValue();
+                    if(Locale.getDefault().getLanguage().equals("en")){
+                        text.setText(eng[0]);
 
-                    text.setText(eng[0]);
+                    }else{
+                        text.setText(ru[0]);
+                    }
 
                     editText.setText("");
                     x.setText(String.valueOf(Random_words_eng.size()));
@@ -337,6 +351,15 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 Button next = this.next;
                 next.callOnClick();
                 return true;
+            case R.id.change_language:
+                if(Locale.getDefault().getLanguage().equals("en")){
+                    setlocale("ru");
+                    recreate();
+                }else{
+                    setlocale("en");
+                    recreate();
+                }
+
             default:
                 return false;
         }
@@ -348,5 +371,19 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
-
+    private void setlocale(String lang){
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale=locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("Settings",MODE_PRIVATE).edit();
+        editor.putString("Mylang",lang);
+        editor.apply();
+    }
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("Mylang","");
+        setlocale(language);
+    }
 }

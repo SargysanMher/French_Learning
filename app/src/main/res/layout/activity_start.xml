@@ -35,11 +35,12 @@
         android:id="@+id/language"
         android:layout_width="0sp"
         android:layout_height="0sp"
+        android:onClick="change"
         android:src="@drawable/language"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintRight_toLeftOf="@id/rules"
         app:layout_constraintWidth_percent="0.1"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,UsingOnClickInXml">
 
 
     </ImageView>

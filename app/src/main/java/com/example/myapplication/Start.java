@@ -28,25 +28,13 @@ int i = 0;
         int DeviceTotalHeight = metrics.heightPixels;
         TextView French_Learning = findViewById(R.id.french_learning);
         French_Learning.setTextSize(DeviceTotalWidth/40);
-        ImageView language = findViewById(R.id.language);
-        language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(French_Learning.getText().equals("FRENCH LEARNING")){
-                    setlocale("ru");
-                    recreate();
-                }
-                else{
-                    setlocale("en");
-                    recreate();
-                }
-            }
-        });
+
     }
 
     public void rules(View view) {
 
     }
+
 
 
     private void setlocale(String lang){
@@ -68,5 +56,16 @@ int i = 0;
     public void vocabulary(View view) {
         Intent intent = new Intent(Start.this,MainActivity.class);
         startActivity(intent);
+    }
+
+    public void change(View view) {
+        if(Locale.getDefault().getLanguage().equals("en")){
+            setlocale("ru");
+            recreate();
+        }
+        else{
+            setlocale("en");
+            recreate();
+        }
     }
 }

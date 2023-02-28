@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         TextView place_of_stars_of_technique = findViewById(R.id.stars_of_technique);
         Bundle extras = getIntent().getExtras();
         FileInputStream fin1 = null;FileInputStream fin2 = null;FileInputStream fin3 = null;FileInputStream fin4 = null;FileInputStream fin5 = null;FileInputStream fin6 = null;FileInputStream fin7 = null;FileInputStream fin8 = null;FileInputStream fin9 = null;FileInputStream fin10 = null;FileInputStream fin11 = null;FileInputStream fin12 = null;FileOutputStream fos1 = null;FileOutputStream fos2 = null;FileOutputStream fos3 = null;FileOutputStream fos4 = null;FileOutputStream fos5 = null;FileOutputStream fos6 = null;FileOutputStream fos7 = null;FileOutputStream fos8 = null;FileOutputStream fos9 = null;FileOutputStream fos10 = null;FileOutputStream fos11 = null;FileOutputStream fos12 = null;
-
+        TextView food_str = findViewById(R.id.food_string);
 
 
 
@@ -246,6 +246,12 @@ public class MainActivity extends AppCompatActivity {
     public void ALL(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
         intent.putExtra("theme",0);
+        startActivity(intent);
+    }
+
+    public void back(View view) {
+        Intent intent = new Intent(MainActivity.this,Start.class);
+        finish();
         startActivity(intent);
     }
 }

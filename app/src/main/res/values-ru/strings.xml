@@ -23,12 +23,18 @@
     <string name="back_to_main_menu">назад в главное меню</string>
     <string name="restart">рестарт</string>
     <string name="answer">ответ</string>
-    <string name="mistakes">ошибки</string>
-    <string name="right_answers">правильнэ ответы</string>
+    <string name="mistakes">ошиб</string>
+    <string name="mistake">ошибка</string>
+    <string name="right_answer">правильный ответ</string>
+
+    <string name="right_answers">правильных ответ</string>
     <string name="your_result_for_this_theme_is">ваш результат для этой темы </string>
-    <string name="hints_used">подсказок использовано</string>
-    <string name="answers_used">ответов использовано</string>
+    <string name="hints_used">подсказ</string>
+    <string name="answers_used">использованных ответ</string>
     <string name="vocabulary">слоаврь</string>
+    <string name="answer_used">ответ использован</string>
+    <string name="hint_used">подсказка использована</string>
+
     <string name="sentence">предложение</string>
 
 </resources>

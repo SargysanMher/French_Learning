@@ -12,7 +12,14 @@
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription,MissingConstraints,NotSiblings">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:onClick="back"
+            android:text="X">
 
+        </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +43,7 @@
 
         <ImageView
 
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:onClick="house"
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
@@ -258,16 +265,18 @@
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             android:text="@string/clothes"
             app:layout_constraintBottom_toBottomOf="@id/clothes"
             app:layout_constraintEnd_toEndOf="@id/clothes"
-            app:autoSizeTextType="uniform"
             android:id="@+id/clothes_string"
             android:textStyle="bold|italic"
             android:textColor="@color/red"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/clothes"
             app:layout_constraintTop_toTopOf="@id/clothes" />
         <TextView
@@ -282,14 +291,16 @@
         </TextView>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@id/tecknology"
-            app:autoSizeTextType="uniform"
-            android:textColor="@color/orange"
+            android:textColor="@color/red"
             android:id="@+id/tecknology_string"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="@id/tecknology"
             app:layout_constraintStart_toStartOf="@id/tecknology"
             app:layout_constraintTop_toTopOf="@id/tecknology"
@@ -305,17 +316,19 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@id/character"
             app:layout_constraintEnd_toEndOf="@id/character"
-            app:autoSizeTextType="uniform"
             android:textColor="@color/black"
             android:textStyle="bold|italic"
             android:id="@+id/character_string"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/character"
             app:layout_constraintTop_toTopOf="@id/character"
-            android:layout_height="wrap_content"
             android:text="@string/character" />
         <TextView
             android:id="@+id/stars_of_character"
@@ -328,15 +341,17 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@id/travel"
             app:layout_constraintEnd_toEndOf="@id/travel"
-            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/travel_string"
             android:textColor="@color/red"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/travel"
             app:layout_constraintTop_toTopOf="@id/travel"
             android:text="@string/travel" />
@@ -351,15 +366,17 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
-            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/nature"
             android:id="@+id/nature_string"
             app:layout_constraintEnd_toEndOf="@id/nature"
-            app:autoSizeTextType="uniform"
             android:textColor="@color/red"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/nature"
             app:layout_constraintTop_toTopOf="@id/nature"
             android:text="@string/nature" />
@@ -374,16 +391,18 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
-            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/seasons"
 
             app:layout_constraintEnd_toEndOf="@id/seasons"
-            app:autoSizeTextType="uniform"
             android:textColor="@color/yellow"
             android:id="@+id/seasons_string"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/seasons"
             app:layout_constraintTop_toTopOf="@id/seasons"
             android:text="@string/seasons"
@@ -400,16 +419,18 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@id/home"
             app:layout_constraintEnd_toEndOf="@id/home"
             app:layout_constraintStart_toStartOf="@id/home"
-            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/house"
             android:textColor="@color/yellow"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintTop_toTopOf="@id/home"
             android:text="@string/house" />
 
@@ -424,17 +445,19 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@id/food"
             app:layout_constraintEnd_toEndOf="@id/food"
             app:layout_constraintStart_toStartOf="@id/food"
             app:layout_constraintTop_toTopOf="@id/food"
-            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:id="@+id/food_string"
-            android:textColor="@color/black"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:textColor="@color/red"
+            android:gravity="center"
             android:text="@string/food" />
         <TextView
             android:id="@+id/stars_of_food"
@@ -447,15 +470,18 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
             app:layout_constraintBottom_toBottomOf="@id/person"
             app:layout_constraintEnd_toEndOf="@id/person"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
             app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             android:id="@+id/person_string"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/person"
             app:layout_constraintTop_toTopOf="@id/person"
             android:text="@string/person" />
@@ -471,13 +497,15 @@
 
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
             android:textColor="@color/yellow"
             android:id="@+id/professions_string"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/professions"
             app:layout_constraintEnd_toEndOf="@id/professions"
             app:layout_constraintStart_toStartOf="@id/professions"
@@ -496,11 +524,16 @@
         </TextView>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
             android:text="@string/school"
             android:textColor="@color/red"
-            android:textSize="40sp"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
+            android:gravity="center"
+
             app:layout_constraintBottom_toBottomOf="@id/school"
             app:layout_constraintEnd_toEndOf="@id/school"
             android:id="@+id/school_string"
@@ -519,14 +552,18 @@
 
         </TextView>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_height="70dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
+
             android:textColor="@color/yellow"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
             app:layout_constraintBottom_toBottomOf="@id/animals"
             android:textStyle="bold|italic"
             android:id="@+id/animals_string"
+            android:gravity="center"
+
             app:layout_constraintRight_toRightOf="@id/animals"
             app:layout_constraintLeft_toLeftOf="@id/animals"
             app:layout_constraintTop_toTopOf="@id/animals"

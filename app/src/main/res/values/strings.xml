@@ -23,10 +23,16 @@
     <string name="restart">restart</string>
     <string name="answer">answer</string>
     <string name="mistakes">mistakes</string>
+    <string name="mistake">mistake</string>
+    <string name="right_answer">right answer</string>
+
     <string name="right_answers">right answers</string>
     <string name="your_result_for_this_theme_is">your result for this theme is</string>
     <string name="hints_used">hints used</string>
-    <string name="answers_used">answers_used</string>
+    <string name="answers_used">answers used</string>
+    <string name="answer_used">answer used</string>
+    <string name="hint_used">hint used</string>
+
     <string name="vocabulary">Vocabulary</string>
     <string name="sentence">sentence</string>
 </resources>
