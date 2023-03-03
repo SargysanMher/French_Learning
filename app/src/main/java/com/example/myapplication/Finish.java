@@ -36,8 +36,8 @@ public class Finish extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
-        int DeviceTotalWidth = metrics.widthPixels;
-        int DeviceTotalHeight = metrics.heightPixels;
+        float DeviceTotalWidth = metrics.widthPixels;
+        float DeviceTotalHeight = metrics.heightPixels;
 
         int answer = extras.getInt("answer");
         int which_theme = extras.getInt("which_theme");
@@ -263,8 +263,8 @@ public class Finish extends AppCompatActivity {
         Button button=findViewById(R.id.back);
         TextView your = findViewById(R.id.your_result);
         your.setTextSize(DeviceTotalWidth/50);
-        button.setHeight(DeviceTotalHeight/15);
-        button.setWidth(DeviceTotalWidth/3);
+        button.setHeight((int) (DeviceTotalHeight/15));
+        button.setWidth((int) (DeviceTotalWidth/3));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -339,8 +339,8 @@ public class Finish extends AppCompatActivity {
             }
         });
         Button restart=findViewById(R.id.restart);
-        restart.setHeight(DeviceTotalHeight/15);
-        restart.setWidth(DeviceTotalWidth/3);
+        restart.setHeight((int) (DeviceTotalHeight/15));
+        restart.setWidth((int) (DeviceTotalWidth/3));
         answers.setTextSize(DeviceTotalWidth/40);
 
 

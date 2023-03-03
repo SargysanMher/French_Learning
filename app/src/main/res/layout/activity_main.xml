@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+android:background="@color/gray"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="UsingOnClickInXml"
@@ -11,20 +12,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription,MissingConstraints,NotSiblings">
+        <ImageView
+            android:id="@+id/language"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            android:onClick="change"
+            android:src="@drawable/language_gray"
+            app:layout_constraintHeight_percent="0.02"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.1"
+            tools:ignore="MissingConstraints,UsingOnClickInXml">
 
+
+        </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50sp"
             android:onClick="back"
+            android:id="@+id/xach"
             android:text="X">
 
         </TextView>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0sp"
+            android:maxLines="1"
             android:gravity="center"
-            android:textSize="50sp"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintTop_toBottomOf="@id/xach"
             android:id="@+id/french_learning"
             android:textColor="@color/red"
             android:text="@string/french_learning">
@@ -32,7 +49,7 @@
         </TextView>
         <TextView
             android:layout_width="match_parent" 
-            app:layout_constraintHeight_percent="0.09"
+            app:layout_constraintHeight_percent="0.05"
             app:layout_constraintTop_toBottomOf="@id/french_learning"
             android:id="@+id/view" android:layout_height="0sp">
 
@@ -43,11 +60,12 @@
 
         <ImageView
 
-            android:layout_height="100dp"
+            android:layout_height="150dp"
+            android:padding="15dp"
             android:onClick="house"
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"
-
+            app:layout_constraintWidth_percent="0.41"
+            android:background="@drawable/values"
             android:id="@+id/home"
             app:layout_constraintTop_toBottomOf="@id/view"
             android:src="@drawable/house"
@@ -64,8 +82,11 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"
+            android:layout_height="150dp"
             app:layout_constraintTop_toBottomOf="@id/view1"
+            android:background="@drawable/values"
+            android:padding="15dp"
             android:onClick="animals"
             android:id="@+id/animals"
             android:src="@drawable/animals">
@@ -81,8 +102,11 @@
 
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             app:layout_constraintTop_toBottomOf="@id/view2"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             android:onClick="person"
             android:id="@+id/person"
             android:src="@drawable/person">
@@ -97,9 +121,12 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="clothes"
             app:layout_constraintTop_toBottomOf="@id/view3"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             android:id="@+id/clothes"
             android:src="@drawable/clothes">
 
@@ -113,9 +140,13 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            android:padding="15dp"
+
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="school"
             android:id="@+id/school"
+            android:background="@drawable/values"
+
             app:layout_constraintTop_toBottomOf="@id/view4"
             android:src="@drawable/school">
 
@@ -129,9 +160,12 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="food"
             app:layout_constraintTop_toBottomOf="@id/view5"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             android:id="@+id/food"
             android:src="@drawable/food">
 
@@ -161,9 +195,12 @@
 
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="seasons"
             app:layout_constraintTop_toBottomOf="@id/view"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             app:layout_constraintRight_toRightOf="parent"
             android:id="@+id/seasons"
             android:src="@drawable/seasons">
@@ -178,9 +215,12 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="professions"
             app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             app:layout_constraintTop_toBottomOf="@id/view7"
             android:id="@+id/professions"
             android:src="@drawable/professions">
@@ -195,8 +235,11 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="character"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view8"
             android:id="@+id/character"
@@ -212,9 +255,12 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view9"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             android:onClick="travel"
             android:id="@+id/travel"
             android:src="@drawable/travel">
@@ -229,10 +275,13 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="nature"
             app:layout_constraintTop_toBottomOf="@id/view10"
             android:id="@+id/nature"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/nature">
 
@@ -246,11 +295,14 @@
         </TextView>
         <ImageView
             android:layout_width="0sp"
-            app:layout_constraintWidth_percent="0.45"            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:id="@+id/tecknology"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view11"
             android:onClick="technique"
+            android:background="@drawable/values"
+            android:padding="15dp"
+
             android:src="@drawable/technique">
 
         </ImageView>
@@ -267,18 +319,19 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             android:text="@string/clothes"
             app:layout_constraintBottom_toBottomOf="@id/clothes"
             app:layout_constraintEnd_toEndOf="@id/clothes"
             android:id="@+id/clothes_string"
             android:textStyle="bold|italic"
-            android:textColor="@color/red"
+            app:autoSizeTextType="uniform"
+
             android:gravity="center"
-            app:layout_constraintStart_toStartOf="@id/clothes"
-            app:layout_constraintTop_toTopOf="@id/clothes" />
+            app:layout_constraintStart_toStartOf="@id/clothes">
+
+        </TextView>
         <TextView
             android:id="@+id/stars_of_clothes"
             android:layout_width="wrap_content"
@@ -293,18 +346,17 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@id/tecknology"
-            android:textColor="@color/red"
             android:id="@+id/tecknology_string"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="@id/tecknology"
             app:layout_constraintStart_toStartOf="@id/tecknology"
-            app:layout_constraintTop_toTopOf="@id/tecknology"
-            android:text="@string/technique" />
+            android:text="@string/technique"
+            app:autoSizeTextType="uniform"
+            />
         <TextView
             android:id="@+id/stars_of_technique"
             android:layout_width="wrap_content"
@@ -318,17 +370,16 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:layout_constraintBottom_toBottomOf="@id/character"
             app:layout_constraintEnd_toEndOf="@id/character"
-            android:textColor="@color/black"
             android:textStyle="bold|italic"
             android:id="@+id/character_string"
             android:gravity="center"
+            app:autoSizeTextType="uniform"
+
             app:layout_constraintStart_toStartOf="@id/character"
-            app:layout_constraintTop_toTopOf="@id/character"
             android:text="@string/character" />
         <TextView
             android:id="@+id/stars_of_character"
@@ -343,17 +394,16 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:layout_constraintBottom_toBottomOf="@id/travel"
             app:layout_constraintEnd_toEndOf="@id/travel"
             android:textStyle="bold|italic"
+            app:autoSizeTextType="uniform"
+
             android:id="@+id/travel_string"
-            android:textColor="@color/red"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/travel"
-            app:layout_constraintTop_toTopOf="@id/travel"
             android:text="@string/travel" />
         <TextView
             android:id="@+id/stars_of_travel"
@@ -368,17 +418,16 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@id/nature"
+            app:autoSizeTextType="uniform"
+
             android:id="@+id/nature_string"
             app:layout_constraintEnd_toEndOf="@id/nature"
-            android:textColor="@color/red"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/nature"
-            app:layout_constraintTop_toTopOf="@id/nature"
             android:text="@string/nature" />
         <TextView
             android:id="@+id/stars_of_nature"
@@ -393,18 +442,16 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="@id/seasons"
+            app:autoSizeTextType="uniform"
 
             app:layout_constraintEnd_toEndOf="@id/seasons"
-            android:textColor="@color/yellow"
             android:id="@+id/seasons_string"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/seasons"
-            app:layout_constraintTop_toTopOf="@id/seasons"
             android:text="@string/seasons"
 
             />
@@ -421,17 +468,18 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
+            android:layout_height="30sp"
+            android:textColor="@color/black"
             app:autoSizeTextType="uniform"
+
+            android:maxLines="1"
             app:layout_constraintBottom_toBottomOf="@id/home"
             app:layout_constraintEnd_toEndOf="@id/home"
             app:layout_constraintStart_toStartOf="@id/home"
+            android:layout_marginBottom="5dp"
             android:textStyle="bold|italic"
             android:id="@+id/house"
-            android:textColor="@color/yellow"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="@id/home"
             android:text="@string/house" />
 
         <TextView
@@ -447,16 +495,15 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
-            app:autoSizeTextType="uniform"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:layout_constraintBottom_toBottomOf="@id/food"
             app:layout_constraintEnd_toEndOf="@id/food"
             app:layout_constraintStart_toStartOf="@id/food"
-            app:layout_constraintTop_toTopOf="@id/food"
             android:textStyle="bold|italic"
             android:id="@+id/food_string"
-            android:textColor="@color/red"
+            app:autoSizeTextType="uniform"
+
             android:gravity="center"
             android:text="@string/food" />
         <TextView
@@ -475,15 +522,13 @@
             app:layout_constraintEnd_toEndOf="@id/person"
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
-            android:textColor="@color/black"
             android:id="@+id/person_string"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/person"
-            app:layout_constraintTop_toTopOf="@id/person"
             android:text="@string/person" />
         <TextView
             android:id="@+id/stars_of_person"
@@ -499,17 +544,15 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:autoSizeTextType="uniform"
             android:textStyle="bold|italic"
-            android:textColor="@color/yellow"
             android:id="@+id/professions_string"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/professions"
             app:layout_constraintEnd_toEndOf="@id/professions"
             app:layout_constraintStart_toStartOf="@id/professions"
-            app:layout_constraintTop_toTopOf="@id/professions"
             android:text="@string/professions" />
         <TextView
             android:id="@+id/stars_of_professions"
@@ -526,11 +569,10 @@
         <TextView
 
             android:text="@string/school"
-            android:textColor="@color/red"
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:autoSizeTextType="uniform"
             android:gravity="center"
 
@@ -538,8 +580,9 @@
             app:layout_constraintEnd_toEndOf="@id/school"
             android:id="@+id/school_string"
             app:layout_constraintStart_toStartOf="@id/school"
-            android:textStyle="bold|italic"
-            app:layout_constraintTop_toTopOf="@id/school" />
+            android:textStyle="bold|italic">
+
+        </TextView>
         <TextView
             android:id="@+id/stars_of_school"
             android:layout_width="wrap_content"
@@ -554,11 +597,10 @@
         <TextView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.45"
-            android:layout_height="70dp"
-            android:maxLines="1"
+            android:layout_height="30sp"
+            android:textColor="@color/black"            android:maxLines="1"
             app:autoSizeTextType="uniform"
 
-            android:textColor="@color/yellow"
             app:layout_constraintBottom_toBottomOf="@id/animals"
             android:textStyle="bold|italic"
             android:id="@+id/animals_string"
@@ -566,7 +608,6 @@
 
             app:layout_constraintRight_toRightOf="@id/animals"
             app:layout_constraintLeft_toLeftOf="@id/animals"
-            app:layout_constraintTop_toTopOf="@id/animals"
             android:text="@string/animals" />
         <TextView
             android:id="@+id/stars_of_animals"

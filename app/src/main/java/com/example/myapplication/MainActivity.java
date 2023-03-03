@@ -3,15 +3,22 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     int stars_for_house;
@@ -28,7 +35,45 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_main);
+        TextView house = findViewById(R.id.house);
+
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+        int DeviceTotalWidth = metrics.widthPixels;
+        int DeviceTotalHeight = metrics.heightPixels;
+
+        TextView french_learning = findViewById(R.id.french_learning);
+        french_learning.setTextSize(DeviceTotalWidth/25);
+        house.setTextSize((float)DeviceTotalHeight/100);
+
+        house.setHeight(DeviceTotalHeight/20);
+        ImageView home = findViewById(R.id.home);
+        home.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView animals = findViewById(R.id.animals);
+        animals.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView person = findViewById(R.id.person);
+        person.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView clothes = findViewById(R.id.clothes);
+        clothes.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView school = findViewById(R.id.school);
+        school.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView food = findViewById(R.id.food);
+        food.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView seasons = findViewById(R.id.seasons);
+        seasons.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView proffesions = findViewById(R.id.professions);
+        proffesions.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView character = findViewById(R.id.character);
+        character.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView travelling = findViewById(R.id.travel);
+        travelling.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView nature = findViewById(R.id.nature);
+        nature.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        ImageView technique = findViewById(R.id.tecknology);
+        technique.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+
 
         String stars[]= new String[]{"stars_of_housedp.txt","stars_of_animals.txt","stars_of_person.txt","stars_of_technique.txt","stars_of_nature.txt","stars_of_travel.txt","stars_of_character.txt","stars_of_professions.txt","stars_of_food.txt", "stars_of_school.txt","stars_of_clothes.txt","stars_of_seasons.txt"};
         TextView place_of_stars_of_house = findViewById(R.id.stars_of_house);
@@ -169,6 +214,33 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+    private void setlocale(String lang){
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale=locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("Settings",MODE_PRIVATE).edit();
+        editor.putString("Mylang",lang);
+        editor.apply();
+    }
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("Mylang","");
+        setlocale(language);
+    }
+
+
+    public void change(View view) {
+        if(Locale.getDefault().getLanguage().equals("en")){
+            setlocale("ru");
+            recreate();
+        }
+        else{
+            setlocale("en");
+            recreate();
+        }
     }
 
     public void house(View view) {

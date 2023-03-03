@@ -52,7 +52,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         int DeviceTotalWidth = metrics.widthPixels;
         int DeviceTotalHeight = metrics.heightPixels;
         TextView y = findViewById(R.id.y);
+        LinearLayout linearLayout = findViewById(R.id.linear2);
+        linearLayout.setBottom(DeviceTotalHeight/4);
 
+        Log.d("asd", String.valueOf(linearLayout.getBottom()));
         TextView slash = findViewById(R.id.slash);
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
@@ -66,13 +69,13 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         x.setTextSize(DeviceTotalWidth/50);
         y.setTextSize(DeviceTotalWidth/50);
         slash.setTextSize(DeviceTotalWidth/50);
-        answer.setWidth(DeviceTotalWidth/5);
+        answer.setWidth((int) (DeviceTotalWidth/2.5));
         answer.setHeight(DeviceTotalHeight/20);
-        check.setWidth(DeviceTotalWidth/5);
+        check.setWidth((int) (DeviceTotalWidth/2.5));
         check.setHeight(DeviceTotalHeight/20);
-        hint.setWidth(DeviceTotalWidth/5);
+        hint.setWidth((int) (DeviceTotalWidth/2.5));
         hint.setHeight(DeviceTotalHeight/20);
-        next.setWidth(DeviceTotalWidth/5);
+        next.setWidth((int) (DeviceTotalWidth/2.5));
         next.setHeight(DeviceTotalHeight/20);
         next.setMaxLines(1);
         Bundle extras = getIntent().getExtras();
