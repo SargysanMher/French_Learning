@@ -651,6 +651,19 @@ android:background="@color/gray"
             app:layout_constraintTop_toBottomOf="@id/animals_string">
 
         </TextView>
+        <TextView
+            android:id="@+id/stars_of_all"
+            android:layout_width="0sp"
+            app:layout_constraintWidth_percent="0.45"
+            android:gravity="center"
+            android:layout_height="30sp"
+            app:autoSizeTextType="uniform"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/All"
+            app:layout_constraintStart_toStartOf="@id/All"
+            app:layout_constraintBottom_toBottomOf="@id/All">
+
+        </TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

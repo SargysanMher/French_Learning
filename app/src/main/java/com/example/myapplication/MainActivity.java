@@ -79,15 +79,17 @@ public class MainActivity extends AppCompatActivity {
         TextView seasons_stars = findViewById(R.id.stars_of_seasons);
         TextView clothes_stars = findViewById(R.id.stars_of_clothes);
         TextView nature_stars = findViewById(R.id.stars_of_nature);
+        TextView all_stars = findViewById(R.id.stars_of_all);
+
         TextView Person_stars = findViewById(R.id.stars_of_person);
-        TextView[] texts = {house_stars,animals_stars,Person_stars,technique_stars,nature_stars,travelling_stars,character_stars,professions_stars,food_stars,school_stars,clothes_stars,seasons_stars};
+        TextView[] texts = {all_stars,house_stars,animals_stars,Person_stars,technique_stars,nature_stars,travelling_stars,character_stars,professions_stars,food_stars,school_stars,clothes_stars,seasons_stars};
 
         SharedPreferences savedData = getSharedPreferences("savedData",MODE_PRIVATE);
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 0; i <= 12; i++) {
             String kk = String.valueOf(i);
 
             stars = savedData.getString(kk,"");
-            texts[i-1].setText(stars);
+            texts[i].setText(stars);
 
 
         }
