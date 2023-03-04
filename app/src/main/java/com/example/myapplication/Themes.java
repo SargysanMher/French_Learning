@@ -162,9 +162,9 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                             break;
                         }
                     }
-                    word_from_edittext=editText.getText().toString();
+                    word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
 
-                    if (word_from_edittext.equals(fr[0])) {
+                    if (word_from_edittext.equals(fr[0].toLowerCase(Locale.ROOT))) {
                         i++;
                     }
 
@@ -223,8 +223,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     check.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            word_from_edittext=editText.getText().toString();
-                            if(word_from_edittext.equals(sheet[0].getRow(finalRow1).getCell(2).getStringCellValue())){
+                            word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
+                            if(word_from_edittext.equals(sheet[0].getRow(finalRow1).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                                 checked.setText("✅");
 
 
@@ -240,8 +240,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     });
                 } else {
 
-                    word_from_edittext = editText.getText().toString();
-                    if (word_from_edittext.equals(eng[0])) {
+                    word_from_edittext = editText.getText().toString().toLowerCase(Locale.ROOT);
+                    if (word_from_edittext.equals(fr[0].toLowerCase(Locale.ROOT))) {
                         i++;
                     }
 
@@ -306,8 +306,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                word_from_edittext=editText.getText().toString();
-                if(word_from_edittext.equals(finalSheet3.getRow(row[0]).getCell(2).getStringCellValue())){
+                word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
+                if(word_from_edittext.equals(finalSheet3.getRow(row[0]).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                     checked.setText("✅");
 
 

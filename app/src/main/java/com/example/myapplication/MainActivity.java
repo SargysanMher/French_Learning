@@ -11,23 +11,12 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    int stars_for_house;
-    String stars_for_house_string;
-    int hint,which_theme;
-
-     static private String FILE_NAME ="aaaas.txt";
-    static private String FILE_NAME_hint ="aasff.txt";
-
+    String stars;
 
 
 
@@ -45,176 +34,72 @@ public class MainActivity extends AppCompatActivity {
         int DeviceTotalHeight = metrics.heightPixels;
 
         TextView french_learning = findViewById(R.id.french_learning);
-        french_learning.setTextSize(DeviceTotalWidth/25);
-        house.setTextSize((float)DeviceTotalHeight/100);
+        french_learning.setTextSize(DeviceTotalWidth / 25);
+        house.setTextSize((float) DeviceTotalHeight / 100);
 
-        house.setHeight(DeviceTotalHeight/20);
+        house.setHeight(DeviceTotalHeight / 20);
         ImageView home = findViewById(R.id.home);
-        home.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        home.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView animals = findViewById(R.id.animals);
-        animals.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        animals.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView person = findViewById(R.id.person);
-        person.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        person.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView clothes = findViewById(R.id.clothes);
-        clothes.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        clothes.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView school = findViewById(R.id.school);
-        school.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        school.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView food = findViewById(R.id.food);
-        food.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        food.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView seasons = findViewById(R.id.seasons);
-        seasons.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        seasons.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView proffesions = findViewById(R.id.professions);
-        proffesions.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        proffesions.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView character = findViewById(R.id.character);
-        character.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        character.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView travelling = findViewById(R.id.travel);
-        travelling.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        travelling.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView nature = findViewById(R.id.nature);
-        nature.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
+        nature.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView technique = findViewById(R.id.tecknology);
-        technique.setPadding(DeviceTotalWidth/60,DeviceTotalHeight/60,DeviceTotalWidth/60,DeviceTotalHeight/40);
-
-
-        String stars[]= new String[]{"stars_of_housedp.txt","stars_of_animals.txt","stars_of_person.txt","stars_of_technique.txt","stars_of_nature.txt","stars_of_travel.txt","stars_of_character.txt","stars_of_professions.txt","stars_of_food.txt", "stars_of_school.txt","stars_of_clothes.txt","stars_of_seasons.txt"};
-        TextView place_of_stars_of_house = findViewById(R.id.stars_of_house);
-        TextView place_of_stars_of_animals = findViewById(R.id.stars_of_animals);
-        TextView place_of_stars_of_person = findViewById(R.id.stars_of_person);
-        TextView place_of_stars_of_clothes = findViewById(R.id.stars_of_clothes);
-        TextView place_of_stars_of_school = findViewById(R.id.stars_of_school);
-        TextView place_of_stars_of_food = findViewById(R.id.stars_of_food);
-        TextView place_of_stars_of_seasons = findViewById(R.id.stars_of_seasons);
-        TextView place_of_stars_of_professions = findViewById(R.id.stars_of_professions);
-        TextView place_of_stars_of_character = findViewById(R.id.stars_of_character);
-        TextView place_of_stars_of_travel = findViewById(R.id.stars_of_travel);
-        TextView place_of_stars_of_nature = findViewById(R.id.stars_of_nature);
-        TextView place_of_stars_of_technique = findViewById(R.id.stars_of_technique);
-        Bundle extras = getIntent().getExtras();
-        FileInputStream fin1 = null;FileInputStream fin2 = null;FileInputStream fin3 = null;FileInputStream fin4 = null;FileInputStream fin5 = null;FileInputStream fin6 = null;FileInputStream fin7 = null;FileInputStream fin8 = null;FileInputStream fin9 = null;FileInputStream fin10 = null;FileInputStream fin11 = null;FileInputStream fin12 = null;FileOutputStream fos1 = null;FileOutputStream fos2 = null;FileOutputStream fos3 = null;FileOutputStream fos4 = null;FileOutputStream fos5 = null;FileOutputStream fos6 = null;FileOutputStream fos7 = null;FileOutputStream fos8 = null;FileOutputStream fos9 = null;FileOutputStream fos10 = null;FileOutputStream fos11 = null;FileOutputStream fos12 = null;
-        TextView food_str = findViewById(R.id.food_string);
+        technique.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
 
 
 
-        if (extras != null) {
-            which_theme=extras.getInt("which_theme");
-        }else{
-            which_theme=-1;
+
+
+        ///////////////////////////////////////////////////////////
+        TextView house_stars = findViewById(R.id.stars_of_house);
+        TextView animals_stars = findViewById(R.id.stars_of_animals);
+        TextView professions_stars = findViewById(R.id.stars_of_professions);
+        TextView technique_stars = findViewById(R.id.stars_of_technique);
+        TextView travelling_stars = findViewById(R.id.stars_of_travel);
+        TextView school_stars = findViewById(R.id.stars_of_school);
+        TextView food_stars = findViewById(R.id.stars_of_food);
+        TextView character_stars = findViewById(R.id.stars_of_character);
+        TextView seasons_stars = findViewById(R.id.stars_of_seasons);
+        TextView clothes_stars = findViewById(R.id.stars_of_clothes);
+        TextView nature_stars = findViewById(R.id.stars_of_nature);
+        TextView Person_stars = findViewById(R.id.stars_of_person);
+        TextView[] texts = {house_stars,animals_stars,Person_stars,technique_stars,nature_stars,travelling_stars,character_stars,professions_stars,food_stars,school_stars,clothes_stars,seasons_stars};
+
+        SharedPreferences savedData = getSharedPreferences("savedData",MODE_PRIVATE);
+        for (int i = 1; i <= 12; i++) {
+            String kk = String.valueOf(i);
+
+            stars = savedData.getString(kk,"");
+            texts[i-1].setText(stars);
+
 
         }
-        switch (which_theme){
-            case 1:
-                FILE_NAME = "stars_of_housedp.txt";
-                FILE_NAME_hint = "hints_of_house.txt";
-                break;
-            case 2:
-                FILE_NAME = "stars_of_animals.txt";
-                FILE_NAME_hint = "hints_of_animals.txt";
-                break;
-            case 3 :
-                FILE_NAME = "stars_of_person.txt";
-                FILE_NAME_hint = "hints_of_person.txt";
-                break;
-            case 4:
-                FILE_NAME = "stars_of_technique.txt";
-                FILE_NAME_hint = "hints_of_technique.txt";
-                break;
-            case 5:
-                FILE_NAME = "stars_of_nature.txt";
-                FILE_NAME_hint = "hints_of_nature.txt";
-                break;
-            case 6:
-                FILE_NAME = "stars_of_travel.txt";
-                FILE_NAME_hint = "hints_of_travel.txt";
-                break;
-            case 7:
-                FILE_NAME = "stars_of_character.txt";
-                FILE_NAME_hint = "hints_of_character.txt";
-                break;
-            case 8:
-                FILE_NAME = "stars_of_professions.txt";
-                FILE_NAME_hint = "hints_of_professions.txt";
-                break;
-            case 9:
-                FILE_NAME = "stars_of_food.txt";
-                FILE_NAME_hint = "hints_of_food.txt";
-                break;
-            case 10:
-                FILE_NAME = "stars_of_school.txt";
-                FILE_NAME_hint = "hints_of_school.txt";
-                break;
-            case 11:
-                FILE_NAME = "stars_of_clothes.txt";
-                FILE_NAME_hint = "hints_of_clothes.txt";
-                break;
-            case 12:
-                FILE_NAME = "stars_of_seasons.txt";
-                FILE_NAME_hint = "hints_of_seasons.txt";
-                break;
-        }
-        FileOutputStream fos;
-        FileInputStream fin = null;
 
 
 
-        if(which_theme==-1) {
-            if(extras == null) {
-                try {
-                    fin = openFileInput(FILE_NAME_hint);
-                    hint = fin.read();
-                    fin1 = openFileInput(FILE_NAME);
-                    stars_for_house = fin1.read();
-
-                } catch (IOException e) {
-                    stars_for_house=-1;
-                    hint=-1;
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (fin != null) {
-                            fin.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } else {
-                hint = extras.getInt("hint_for_house");
-                stars_for_house = extras.getInt("stars_for_house");
-            }
-
-            try {
-                fos = openFileOutput(FILE_NAME,MODE_PRIVATE);
-                fos.write(stars_for_house);
-                fos1 = openFileOutput(FILE_NAME_hint,MODE_PRIVATE);
-                fos1.write(hint);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if(stars_for_house==0){
-                stars_for_house_string= "✰✰✰";
-            }
-            else if(stars_for_house==1){
-                stars_for_house_string= " ★✰✰";
-            }
-            else if(stars_for_house==2){
-                stars_for_house_string= " ★★✰";
-            }
-            else if(stars_for_house==3&hint==0){
-                stars_for_house_string= " ★★★";
-            }
-            else if(stars_for_house==3&hint>0){
-                stars_for_house_string="★★✰";
-            }
-
-
-
-            place_of_stars_of_house.setText(stars_for_house_string);
-        }
 
 
     }
+
+
+
     private void setlocale(String lang){
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);

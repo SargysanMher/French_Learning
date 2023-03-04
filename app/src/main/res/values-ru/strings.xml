@@ -34,7 +34,9 @@
     <string name="vocabulary">слоаврь</string>
     <string name="answer_used">ответ использован</string>
     <string name="hint_used">подсказка использована</string>
+    <string name="which_translation_is_correct">какой перевод правильный</string>
 
     <string name="sentence">предложение</string>
+    <string name="change_language">перевести на английский</string>
 
 </resources>

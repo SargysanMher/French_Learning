@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sentence">
+    <ImageView
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintWidth_percent="0.07"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:src="@drawable/menu"
+        android:onClick="showPopup"
+        tools:ignore="MissingConstraints">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        app:layout_constraintHeight_percent="0.2"
+        android:id="@+id/view"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        app:layout_constraintHeight_percent="0.1"
+        android:maxLines="1"
+        android:id="@+id/which"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:autoSizeTextType="uniform"
+        android:text="@string/which_translation_is_correct"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/which"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/from_which_is_translated"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:id="@+id/first_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/second_option"
+
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/third_option"
+
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/fourth_option"
+
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

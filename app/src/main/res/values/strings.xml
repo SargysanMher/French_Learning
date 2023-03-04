@@ -35,4 +35,6 @@
 
     <string name="vocabulary">Vocabulary</string>
     <string name="sentence">sentence</string>
+    <string name="which_translation_is_correct">which translation is correct</string>
+    <string name="change_language">translate to Russian</string>
 </resources>

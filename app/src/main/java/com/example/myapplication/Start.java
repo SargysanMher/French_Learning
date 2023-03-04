@@ -50,6 +50,9 @@ int i = 0;
     public void loadLocale(){
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = prefs.getString("Mylang","");
+        if(language.equals("")){
+            language="en";
+        }
         setlocale(language);
     }
 
@@ -67,5 +70,9 @@ int i = 0;
             setlocale("en");
             recreate();
         }
+    }
+    public void sentence(View view){
+        Intent intent = new Intent(Start.this,Sentence.class);
+        startActivity(intent);
     }
 }

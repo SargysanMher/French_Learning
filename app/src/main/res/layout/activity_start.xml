@@ -84,6 +84,7 @@
         app:autoSizeTextType="uniform"
         android:gravity="center"
         android:text="@string/sentence"
+        android:onClick="sentence"
         app:layout_constraintHeight_percent="0.1"
         android:background="@color/gray"
         android:textColor="@color/red"
