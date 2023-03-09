@@ -32,6 +32,7 @@ public class Finish extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_finish);
+
         Bundle extras = getIntent().getExtras();
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
@@ -46,7 +47,10 @@ public class Finish extends AppCompatActivity {
         final FileInputStream[] fin = {null};
 
 
-
+        TextView view = findViewById(R.id.view);
+        view.setHeight((int) (DeviceTotalHeight/5.8));
+        TextView view1 = findViewById(R.id.view1);
+        view1.setHeight((int) (DeviceTotalHeight/5.8));
 
         TextView score = findViewById(R.id.score);
 
@@ -169,7 +173,7 @@ public class Finish extends AppCompatActivity {
                 SharedPreferences savedData = getSharedPreferences("savedData",MODE_PRIVATE);
                 SharedPreferences.Editor editor = savedData.edit();
                 element = savedData.getInt(String.valueOf(which_theme+"int"),counter1);
-                if(element<counter1){
+                if(element<=counter1){
                     if(counter1<100/5){
                         stars= "✰✰✰";
                     }
@@ -186,11 +190,12 @@ public class Finish extends AppCompatActivity {
                         stars="★★✰";
                     }
                     element=counter1;
+                    editor.putString(String.valueOf(which_theme),stars);
+
                 }
 
 
 
-                editor.putString(String.valueOf(which_theme),stars);
                 editor.putInt(String.valueOf(which_theme)+"int",element);
 
                 editor.apply();

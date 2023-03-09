@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView house = findViewById(R.id.house);
 
+
+
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
         int DeviceTotalWidth = metrics.widthPixels;

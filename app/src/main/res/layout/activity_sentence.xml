@@ -3,8 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/fon1"
     android:layout_height="match_parent"
     tools:context=".Sentence">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/x"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="/"
+            android:id="@+id/slash"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/y"
+            android:layout_height="wrap_content">
+        </TextView>
+    </LinearLayout>
     <ImageView
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintWidth_percent="0.07"
@@ -18,7 +48,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHeight_percent="0.14"
         android:id="@+id/view"
         tools:ignore="MissingConstraints">
 
@@ -29,6 +59,7 @@
         app:layout_constraintHeight_percent="0.1"
         android:maxLines="1"
         android:id="@+id/which"
+        android:paddingHorizontal="10dp"
         android:textColor="@color/red"
         app:layout_constraintTop_toBottomOf="@id/view"
         android:autoSizeTextType="uniform"
@@ -40,39 +71,90 @@
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@id/which"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/translates"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/from_which_is_translated"
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
+            android:maxLines="1"
             android:layout_height="wrap_content">
 
         </TextView>
         <TextView
-            android:id="@+id/first_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:id="@+id/first_option"
+            android:layout_width="match_parent"
+            android:autoSizeTextType="uniform"
 
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:background="@drawable/values"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/second_option"
 
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:background="@drawable/values"
             android:layout_height="wrap_content">
 
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/third_option"
 
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:background="@drawable/values"
             android:layout_height="wrap_content">
 
         </TextView>
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
             android:id="@+id/fourth_option"
 
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:background="@drawable/values"
             android:layout_height="wrap_content">
 
         </TextView>
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:paddingHorizontal="100dp"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/next"
+        android:id="@+id/next"
+        tools:ignore="MissingConstraints">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@
     <string name="next">следующее</string>
     <string name="you_correctly_translated">вы правильно перевели </string>
     <string name="words_out_of">слова из</string>
-    <string name="back_to_main_menu">назад в главное меню</string>
+    <string name="back_to_main_menu">назад</string>
     <string name="restart">рестарт</string>
     <string name="answer">ответ</string>
     <string name="mistakes">ошиб</string>
@@ -31,9 +31,9 @@
     <string name="your_result_for_this_theme_is">ваш результат для этой темы </string>
     <string name="hints_used">подсказ</string>
     <string name="answers_used">использованных ответ</string>
-    <string name="vocabulary">слоаврь</string>
+    <string name="vocabulary">словарь</string>
     <string name="answer_used">ответ использован</string>
-    <string name="hint_used">подсказка использована</string>
+    <string name="hint_used">подсказка</string>
     <string name="which_translation_is_correct">какой перевод правильный</string>
 
     <string name="sentence">предложение</string>

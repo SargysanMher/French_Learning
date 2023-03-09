@@ -31,6 +31,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     String french="";
     int i = 0; int hint1 =0;int j=1;int row;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
     StringBuilder hint2;String letters;
+    int x_size;
+
     Button next,hint,check,answer;
     String word_from_edittext;
     ArrayList<String> Random_words_eng;
@@ -41,6 +43,9 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_house);
+        SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
+        SharedPreferences.Editor editor = savedData.edit();
+        x_size = savedData.getInt("x",1);
         hint = findViewById(R.id.hint);
         next = findViewById(R.id.next);
         check = findViewById(R.id.check);
@@ -80,7 +85,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         next.setMaxLines(1);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("theme");
-        x.setText(String.valueOf(1));
+        x.setText(String.valueOf(x_size));
         InputStream fis =  getResources().openRawResource(R.raw.school);
 
         final Workbook[] wb = {null};
@@ -178,7 +183,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     }
 
                     editText.setText("");
-                    x.setText(String.valueOf(Random_words_eng.size()));
+                    x_size = Random_words_eng.size();
+                    editor.putInt("x1",x_size);
+                    editor.apply();
+                    x.setText(String.valueOf(x_size));
 
 
                     int finalRow = row;
@@ -350,9 +358,9 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 return true;
 
             case R.id.restart:
-                Random_words_eng.clear();
-                Button next = this.next;
-                next.callOnClick();
+                recreate();
+                SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
+                savedData.edit().clear().apply();
                 return true;
             case R.id.change_language:
                 if(Locale.getDefault().getLanguage().equals("en")){

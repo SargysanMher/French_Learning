@@ -23,7 +23,11 @@ int i = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
+        SharedPreferences savedData1 = getSharedPreferences("savedresult",MODE_PRIVATE);
+        SharedPreferences savedData2 = getSharedPreferences("savedresult2",MODE_PRIVATE);
 
+        savedData1.edit().clear().apply();
+        savedData2.edit().clear().apply();
         int DeviceTotalWidth = metrics.widthPixels;
         int DeviceTotalHeight = metrics.heightPixels;
         TextView French_Learning = findViewById(R.id.french_learning);
