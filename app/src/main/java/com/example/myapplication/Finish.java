@@ -203,9 +203,9 @@ public class Finish extends AppCompatActivity {
 
 
                 Intent intent = new Intent(Finish.this,MainActivity.class);
+                finish();
 
                 startActivity(intent);
-                finish();
             }
         });
         Button restart=findViewById(R.id.restart);
@@ -220,8 +220,8 @@ public class Finish extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Finish.this, Themes.class);
                 intent.putExtra("theme",which_theme);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
 
             }
         });

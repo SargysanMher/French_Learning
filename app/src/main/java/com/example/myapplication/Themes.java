@@ -10,14 +10,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -29,7 +27,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     String french="";
-    int i = 0; int hint1 =0;int j=1;int row;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
+    int i = 0; int hint1 =0;int j=1;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
     StringBuilder hint2;String letters;
     int x_size;
 
@@ -45,6 +43,11 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         setContentView(R.layout.activity_house);
         SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
         SharedPreferences.Editor editor = savedData.edit();
+        final Set<String>[] H = new Set[]{savedData.getStringSet("Random_words",new HashSet<>())};
+        Random_words_eng = new ArrayList<>(H[0]);
+
+        Log.d("asd", String.valueOf(Random_words_eng));
+
         x_size = savedData.getInt("x",1);
         hint = findViewById(R.id.hint);
         next = findViewById(R.id.next);
@@ -60,7 +63,6 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         LinearLayout linearLayout = findViewById(R.id.linear2);
         linearLayout.setBottom(DeviceTotalHeight/4);
 
-        Log.d("asd", String.valueOf(linearLayout.getBottom()));
         TextView slash = findViewById(R.id.slash);
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
@@ -110,12 +112,12 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         y.setText(String.valueOf(y_size));
 
 
-        Random_words_eng = new ArrayList<>(y_size);
         y_size1=y_size;
 
         y_size= sheet[0].getLastRowNum()+1;
 
         final int[] row = {(int) (Math.random() * y_size)};
+        row[0]=savedData.getInt("row",0);
         final String[] eng = {sheet[0].getRow(row[0]).getCell(0).getStringCellValue()};
         final String[] ru = {sheet[0].getRow(row[0]).getCell(1).getStringCellValue()};
         final String[] fr = {sheet[0].getRow(row[0]).getCell(2).getStringCellValue()};
@@ -124,8 +126,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
         }else{
             text.setText(ru[0]);
-        }        Random_words_eng.add(eng[0]);
-        Sheet finalSheet = sheet[0];
+        }
+        final int[] gh = {savedData.getInt("gh", 0)};
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +142,13 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                         e.printStackTrace();
                     }
                     assert wb != null;
-                if (Random_words_eng.size()!=y_size1) {
+                if (Random_words_eng.size()<y_size1) {
+                    if(gh[0] ==0){
+                        Random_words_eng.add(eng[0]);
+                        gh[0]++;
+                        editor.putInt("gh", gh[0]);
+                    }
+                    Log.d("asd", String.valueOf(Random_words_eng.size()));
                     if(which_theme!=0){
                         sheet[0] = wb.getSheetAt(which_theme - 1);
                         y_size= sheet[0].getLastRowNum()+1;
@@ -184,7 +192,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
                     editText.setText("");
                     x_size = Random_words_eng.size();
-                    editor.putInt("x1",x_size);
+                    editor.putInt("x",x_size);
+                    H[0] = new HashSet<>(Random_words_eng);
+                    editor.putStringSet("Random_words", H[0]);
+                    editor.putInt("row",row);
                     editor.apply();
                     x.setText(String.valueOf(x_size));
 
@@ -252,6 +263,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     if (word_from_edittext.equals(fr[0].toLowerCase(Locale.ROOT))) {
                         i++;
                     }
+                    savedData.edit().clear().apply();
 
                     Intent intent = new Intent(Themes.this, Finish.class);
                     intent.putExtra("result", i);
@@ -259,9 +271,9 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     intent.putExtra("size", y_size1);
                     intent.putExtra("hint", hint1);
                     intent.putExtra("answer", answer1);
+                    finish();
 
                     startActivity(intent);
-                    finish();
 
 
 

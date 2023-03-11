@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -12,11 +15,13 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 public class Start extends AppCompatActivity {
-int i = 0;
+
+int which_theme;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         loadLocale();
@@ -61,6 +66,8 @@ int i = 0;
     }
 
     public void vocabulary(View view) {
+
+
         Intent intent = new Intent(Start.this,MainActivity.class);
         startActivity(intent);
     }
@@ -76,7 +83,35 @@ int i = 0;
         }
     }
     public void sentence(View view){
-        Intent intent = new Intent(Start.this,Sentence.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Start.this);
+        builder.setTitle("Which level?");
+        builder.setItems(new CharSequence[]
+                        {"A1", "A2", "B1", "B2"},
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        switch (which) {
+                            case 0:
+                                which_theme=12;
+                                break;
+                            case 1:
+                                which_theme=13;
+                                break;
+                            case 2:
+                                which_theme=14;
+                                break;
+                            case 3:
+                                which_theme=15;
+                                break;
+
+                        }
+                        Intent intent = new Intent(Start.this,Sentence.class);
+                        intent.putExtra("which_theme",which_theme);
+                        startActivity(intent);
+                    }
+                });
+        builder.create().show();
+
     }
 }
