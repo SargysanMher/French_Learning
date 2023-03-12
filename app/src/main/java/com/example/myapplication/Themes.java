@@ -29,7 +29,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     String french="";
     int i = 0; int hint1 =0;int j=1;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
     StringBuilder hint2;String letters;
-    int x_size;
+    int x_size;int random;
 
     Button next,hint,check,answer;
     String word_from_edittext;
@@ -43,8 +43,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         setContentView(R.layout.activity_house);
         SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
         SharedPreferences.Editor editor = savedData.edit();
-        final Set<String>[] H = new Set[]{savedData.getStringSet("Random_words",new HashSet<>())};
-        Random_words_eng = new ArrayList<>(H[0]);
+        final Set<String> H = new HashSet<>(savedData.getStringSet("Random_words",new HashSet<>()));
+        Random_words_eng = new ArrayList<>(H);
 
         Log.d("asd", String.valueOf(Random_words_eng));
 
@@ -97,15 +97,34 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             e.printStackTrace();
         }
         final Sheet[] sheet = new Sheet[1];
+
+
         if(which_theme!=0){
             sheet[0] = wb[0].getSheetAt(which_theme - 1);
             y_size= sheet[0].getLastRowNum()+1;
         }else{
-            for(int i = 0;i<12;i++){
-                sheet[0] = wb[0].getSheetAt(i);
-                y_size+= sheet[0].getLastRowNum()+1;
+            random = savedData.getInt("rand1",savedData.getInt("rand",(int) (Math.random() * 12)));
+            int hj = savedData.getInt("asd",0);
+            Log.d("qwe", "onCreate: "+String.valueOf(hj));
+
+            if(hj==0){
+                for(int i = 0;i<12;i++){
+                    sheet[0] = wb[0].getSheetAt(i);
+                    y_size+= sheet[0].getLastRowNum()+1;
+                }
+                sheet[0] = wb[0].getSheetAt((int) (Math.random() * 12) );
+
+                hj++;
+                editor.putInt("asd",hj);
+                editor.putInt("y",y_size);
+                editor.putInt("rand",random);
+
+                editor.apply();
             }
-            sheet[0] = wb[0].getSheetAt((int) (Math.random() * 12) );
+            Log.d("qwe", "onCreate: "+String.valueOf(random));
+
+            sheet[0]=wb[0].getSheetAt(random);
+            y_size=savedData.getInt("y",y_size);
 
         }
 
@@ -152,8 +171,12 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     if(which_theme!=0){
                         sheet[0] = wb.getSheetAt(which_theme - 1);
                         y_size= sheet[0].getLastRowNum()+1;
-                    }else{
-                        sheet[0] = wb.getSheetAt((int) (Math.random() * 12) );
+                    }
+                    else{
+                        random=(int) (Math.random() * 12);
+                        sheet[0] = wb.getSheetAt( random);
+                        editor.putInt("rand1",random);
+
                         y_size= sheet[0].getLastRowNum()+1;
 
                     }
@@ -163,7 +186,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
                         if (Random_words_eng.contains(eng[0])){
                             if(which_theme==0){
-                                sheet[0] = wb.getSheetAt((int) (Math.random() * 12) );
+                                random=(int) (Math.random() * 12);
+                                sheet[0] = wb.getSheetAt( random);
+                                editor.putInt("rand1",random);
+
                                 y_size= sheet[0].getLastRowNum()+1;
                             }
 
@@ -193,8 +219,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     editText.setText("");
                     x_size = Random_words_eng.size();
                     editor.putInt("x",x_size);
-                    H[0] = new HashSet<>(Random_words_eng);
-                    editor.putStringSet("Random_words", H[0]);
+                    HashSet <String> hashSet = new HashSet<>(Random_words_eng);
+                    editor.putStringSet("Random_words", hashSet);
                     editor.putInt("row",row);
                     editor.apply();
                     x.setText(String.valueOf(x_size));

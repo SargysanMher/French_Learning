@@ -28,19 +28,26 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
     int i = 1;
+    ArrayList<String> repeated1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_sentence);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        SharedPreferences savedData = getSharedPreferences("savedresult",MODE_PRIVATE);
+        SharedPreferences savedData = getSharedPreferences("savedresult1",MODE_PRIVATE);
         SharedPreferences.Editor editor = savedData.edit();
+        final Set<String> H = new HashSet<>(savedData.getStringSet("Random_words1", Collections.singleton("5")));
+        repeated1 = new ArrayList<String>(H);
+        Log.d("asd", String.valueOf(repeated1));
         i = savedData.getInt("x",1);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("which_theme");
@@ -58,7 +65,6 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
         TextView first_option = findViewById(R.id.first_option);
         first_option.setHeight((int) (DeviceTotalHeight/10));
-
         TextView second_option = findViewById(R.id.second_option);
         second_option.setHeight((int) (DeviceTotalHeight/10));
 
@@ -85,10 +91,8 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         x.setText(String.valueOf(i));
 
         ArrayList<Integer> repeated = new ArrayList<>(4);
-        ArrayList<Integer> repeated1 = new ArrayList<>(y_size);
 
-        final int[] row = {(int) (Math.random() * y_size)};
-        repeated1.add(row[0]);
+        final int[] row = {savedData.getInt("row4",(int) (Math.random() * y_size))};
         final String[] eng_harc = {sheet[0].getRow(row[0]).getCell(0).getStringCellValue()};
         final String[] ru_harc = {sheet[0].getRow(row[0]).getCell(5).getStringCellValue()};
         int row1 = (int)(Math.random() * 4 );
@@ -147,6 +151,8 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
         Button next = findViewById(R.id.next);
         next.setHeight((int) (DeviceTotalHeight/15));
+        repeated1.add(String.valueOf(row[0]));
+
         next.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -157,16 +163,17 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values,null));
 
                 if(i<y_size){
+
                     repeated.clear();
                     i++;
                     x.setText(String.valueOf(i));
                     int row = (int) (Math.random() * y_size);
                     while (true){
-                        if(repeated1.contains(row)){
+                        if(repeated1.contains(String.valueOf(row))){
                             row = (int)(Math.random() * y_size );
                         }
                         else{
-                            repeated1.add(row);
+                            repeated1.add(String.valueOf(row));
 
                             break;
 
@@ -229,8 +236,14 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                     fourth_option.setText(fr_4[0]);
 
                     editor.putInt("x",i);
-                    editor.apply();
+                    editor.putInt("row4",row);
                     int finalRow = row;
+                    HashSet<String> hashSet = new HashSet<>(repeated1);
+                    Log.d("asd", String.valueOf(hashSet));
+
+                    editor.putStringSet("Random_words1", hashSet);
+                    editor.apply();
+
                     first_option.setOnClickListener(new View.OnClickListener() {
                         @SuppressLint("ResourceAsColor")
                         @Override
@@ -339,6 +352,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 }
 
                 else{
+                    savedData.edit().clear().apply();
                     Intent intent = new Intent(Sentence.this,Start.class);
                     startActivity(intent);
                 }
@@ -471,9 +485,9 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 return true;
 
             case R.id.restart:
-                recreate();
-                SharedPreferences savedData = getSharedPreferences("savedresult",MODE_PRIVATE);
+                SharedPreferences savedData = getSharedPreferences("savedresult1",MODE_PRIVATE);
                 savedData.edit().clear().apply();
+                recreate();
                 return true;
             case R.id.change_language:
                 if(Locale.getDefault().getLanguage().equals("en")){
