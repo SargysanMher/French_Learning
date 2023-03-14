@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fon1"
+
     tools:context=".Finish">
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,7 +172,6 @@
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
-                android:textSize="20sp"
                 android:id="@+id/your_result"
                 android:text="@string/your_result_for_this_theme_is"
                 android:layout_height="wrap_content">
@@ -179,13 +180,11 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/stars"
                 android:textColor="@color/orange"
-                android:textSize="20sp"
                 android:layout_height="wrap_content">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/tokos"
-                android:textSize="20sp"
                 android:layout_height="wrap_content">
             </TextView>
         </LinearLayout>

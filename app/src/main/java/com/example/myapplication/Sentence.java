@@ -36,6 +36,7 @@ import java.util.Set;
 public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
     int i = 1;
+    int clicked = 0;
     ArrayList<String> repeated1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +162,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values,null));
                 first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values,null));
                 third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values,null));
-
+                clicked=0;
                 if(i<y_size){
 
                     repeated.clear();
@@ -248,25 +249,28 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @SuppressLint("ResourceAsColor")
                         @Override
                         public void onClick(View v) {
+                            if(clicked==0){
+                                if(first_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                }
+                                else{
+                                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    }
+                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                            if(first_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
-                                first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    }
+                                    else {
+                                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+
+                                }
+                                clicked++;
                             }
-                            else{
-                                first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                if(second_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
-                                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                                }
-                                else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
-                                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                                }
-                                else {
-                                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                                }
-
-                            }
                         }
                     });
                     int finalRow1 = row;
@@ -274,24 +278,28 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @SuppressLint("ResourceAsColor")
                         @Override
                         public void onClick(View v) {
-                            if(second_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
-                                second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                            if(clicked==0){
+                                if(second_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                }
+                                else{
+                                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                                    if(first_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    }
+                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+                                    else {
+                                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+
+                                }
+                                clicked++;
                             }
-                            else{
-                                second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                if(first_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
-                                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                                }
-                                else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
-                                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                                }
-                                else {
-                                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                                }
-
-                            }
                         }
                     });
                     int finalRow2 = row;
@@ -299,24 +307,28 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @SuppressLint("ResourceAsColor")
                         @Override
                         public void onClick(View v) {
-                            if(third_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
-                                third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                            if(clicked==0){
+                                if(third_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                }
+                                else{
+                                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    }
+                                    else if(first_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+                                    else {
+                                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+
+                                }
+                                clicked++;
                             }
-                            else{
-                                third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                if(second_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
-                                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                                }
-                                else if(first_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
-                                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                                }
-                                else {
-                                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                                }
-
-                            }
                         }
                     });
                     int finalRow3 = row;
@@ -324,25 +336,29 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @SuppressLint("ResourceAsColor")
                         @Override
                         public void onClick(View v) {
-                            if(fourth_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
-                                fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                            if(clicked==0){
+                                if(fourth_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                }
+                                else{
+                                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    }
+                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+                                    else {
+                                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                                    }
+
+
+                                }
+                                clicked++;
                             }
-                            else{
-                                fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                if(second_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
-                                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                                }
-                                else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
-                                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                                }
-                                else {
-                                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                                }
-
-
-                            }
 
 
 
@@ -363,98 +379,113 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                if(clicked==0){
+                    if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                    }
+                    else{
+                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        }
+                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        }
+                        else {
+                            fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+
+                    }
+                    clicked++;
                 }
-                else{
-                    first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                    if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                    }
-                    else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                    }
-                    else {
-                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                    }
-
-                }
             }
         });
         second_option.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                if(clicked==0){
+                    if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                    }
+                    else{
+                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                        if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        }
+                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+                        else {
+                            fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+
+                    }
+                    clicked++;
                 }
-                else{
-                    second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                    if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                    }
-                    else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                    }
-                    else {
-                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                    }
-
-                }
             }
         });
         third_option.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                if(clicked==0){
+                    if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                    }
+                    else{
+                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        }
+                        else if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+                        else {
+                            fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+
+                    }
+                    clicked++;
                 }
-                else{
-                    third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                    if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                    }
-                    else if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                    }
-                    else {
-                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                    }
-
-                }
             }
         });
         fourth_option.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                if(fourth_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                if(clicked==0){
+                    if(fourth_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                    }
+                    else{
+                        fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
+                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        }
+                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                            third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+                        else {
+                            first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+
+                        }
+
+
+                    }
+                    clicked++;
                 }
-                else{
-                    fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                    if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-                    }
-                    else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
-                        third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
-                    }
-                    else {
-                        first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
-
-                    }
-
-
-                }
 
 
 

@@ -164,7 +164,7 @@ public class Finish extends AppCompatActivity {
         tokos.setText(String.valueOf(counter1)+"%");
         Button button=findViewById(R.id.back);
         TextView your = findViewById(R.id.your_result);
-        your.setTextSize(DeviceTotalWidth/50);
+        your.setTextSize(DeviceTotalWidth/55);
         button.setHeight((int) (DeviceTotalHeight/15));
         button.setWidth((int) (DeviceTotalWidth/3));
         button.setOnClickListener(new View.OnClickListener() {

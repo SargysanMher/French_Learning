@@ -84,7 +84,7 @@ int which_theme;
     }
     public void sentence(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(Start.this);
-        builder.setTitle("Which level?");
+        builder.setTitle(R.string.Which_level);
         builder.setItems(new CharSequence[]
                         {"A1", "A2", "B1", "B2"},
                 new DialogInterface.OnClickListener() {
