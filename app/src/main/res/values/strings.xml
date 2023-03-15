@@ -38,4 +38,7 @@
     <string name="which_translation_is_correct">which translation is correct</string>
     <string name="change_language">translate to Russian</string>
     <string name="Which_level">Which level?</string>
+    <string name="your_result">result for level</string>
+    <string name="you_chose">you chose</string>
+    <string name="correct_answers_out_of">correct answers out of</string>
 </resources>

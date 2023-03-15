@@ -85,8 +85,14 @@ int which_theme;
     public void sentence(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(Start.this);
         builder.setTitle(R.string.Which_level);
+        SharedPreferences savedData = getSharedPreferences("savedData",MODE_PRIVATE);
+        String A1 = "A1 "+savedData.getString("12","");
+        String A2 = "A2 "+savedData.getString("13","");
+        String B1 = "B1 "+savedData.getString("14","");
+        String B2 = "B2 "+savedData.getString("15","");
+
         builder.setItems(new CharSequence[]
-                        {"A1", "A2", "B1", "B2"},
+                        {A1, A2, B1, B2},
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position

@@ -21,9 +21,10 @@ import java.io.IOException;
 import java.util.Locale;
 
 public class Finish extends AppCompatActivity {
-    String stars,stars_for_house_string;
+    String stars;
     int element;
-
+    int answer=-1;
+    int hint=-1;
 
     @SuppressLint({"SetTextI18n", "MissingInflatedId", "LocalSuppress"})
     @Override
@@ -39,12 +40,16 @@ public class Finish extends AppCompatActivity {
         float DeviceTotalWidth = metrics.widthPixels;
         float DeviceTotalHeight = metrics.heightPixels;
 
-        int answer = extras.getInt("answer");
+        try{
+            answer = extras.getInt("answer");
+            hint = extras.getInt("hint");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         int which_theme = extras.getInt("which_theme");
         int result = extras.getInt("result");
-        int hint = extras.getInt("hint");
         int size = extras.getInt("size");
-        final FileInputStream[] fin = {null};
 
 
         TextView view = findViewById(R.id.view);
@@ -61,35 +66,49 @@ public class Finish extends AppCompatActivity {
         TextView answers = findViewById(R.id.answers);
         TextView answer1 = findViewById(R.id.answer);
         answer1.setTextSize(DeviceTotalWidth/40);
-        if(answer==1){
-            answer1.setText(R.string.answer_used);
-        }else{
-            if(Locale.getDefault().getLanguage().equals("en")) {
-                Log.d("asd", Locale.getDefault().getLanguage()+"ddd");
-                answer1.setText(R.string.answers_used);
-            }else{
-                Resources res = getResources();
+        if(which_theme<12){
+            if(answer==1){
+                answer1.setText(R.string.answer_used);
+            }
+            else{
+                if(Locale.getDefault().getLanguage().equals("en")) {
+                    answer1.setText(R.string.answers_used);
+                }
+                else{
+                    Resources res = getResources();
 
-                String bar = res.getString(R.string.answers_used) + verjavorutyun(answer);
-                answer1.setText(bar);
+                    String bar = res.getString(R.string.answers_used) + verjavorutyun(answer);
+                    answer1.setText(bar);
+                }
             }
         }
+        else{
+            answer1.setVisibility(View.INVISIBLE);
+            answers.setVisibility(View.INVISIBLE);
+
+        }
+
         answers.setText(String.valueOf(answer)+" ");
         TextView hints = findViewById(R.id.hints);
         hints.setTextSize(DeviceTotalWidth/40);
         TextView hint1 = findViewById(R.id.hint);
         hint1.setTextSize(DeviceTotalWidth/40);
-        if(hint==1){
+        if(which_theme<12){
 
+            if(hint==1){
             hint1.setText(R.string.hint_used);
-        }else{
-            if(Locale.getDefault().getLanguage().equals("en")){
-                hint1.setText(R.string.hints_used);
-            }else{
-                Resources res = getResources();
-                String bar = res.getString(R.string.hints_used) + verjavorutyunigakan(hint);
-                hint1.setText(bar);
+            } else {
+                if (Locale.getDefault().getLanguage().equals("en")) {
+                    hint1.setText(R.string.hints_used);
+                } else {
+                    Resources res = getResources();
+                    String bar = res.getString(R.string.hints_used) + verjavorutyunigakan(hint);
+                    hint1.setText(bar);
+                }
             }
+        }else{
+            hint1.setVisibility(View.INVISIBLE);
+            hints.setVisibility(View.INVISIBLE);
 
         }
         hints.setText(String.valueOf(hint)+" ");
@@ -164,6 +183,30 @@ public class Finish extends AppCompatActivity {
         tokos.setText(String.valueOf(counter1)+"%");
         Button button=findViewById(R.id.back);
         TextView your = findViewById(R.id.your_result);
+        if(which_theme>=12){
+            TextView correctly = findViewById(R.id.you_correctly_translated);
+            TextView words = findViewById(R.id.words_out_of);
+            words.setText(R.string.correct_answers_out_of);
+            correctly.setText(R.string.you_chose);
+            String level="";
+            switch (which_theme){
+                case 12:
+                    level = "A1";
+                    break;
+                case 13:
+                    level = "A2";
+                    break;
+                case 14:
+                    level = "B1";
+                    break;
+                case 15:
+                    level = "B2";
+                    break;
+            }
+            Resources res = getResources();
+            your.setText(res.getString(R.string.your_result) + " "+level);
+
+        }
         your.setTextSize(DeviceTotalWidth/55);
         button.setHeight((int) (DeviceTotalHeight/15));
         button.setWidth((int) (DeviceTotalWidth/3));
@@ -200,9 +243,14 @@ public class Finish extends AppCompatActivity {
 
                 editor.apply();
 
+                Intent intent;
+                if(which_theme>=12){
+                    intent  = new Intent(Finish.this,Start.class);
 
+                }else{
+                    intent = new Intent(Finish.this,MainActivity.class);
 
-                Intent intent = new Intent(Finish.this,MainActivity.class);
+                }
                 finish();
 
                 startActivity(intent);
@@ -218,8 +266,15 @@ public class Finish extends AppCompatActivity {
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Finish.this, Themes.class);
-                intent.putExtra("theme",which_theme);
+                Intent intent;
+                if(which_theme>=12){
+                    intent  = new Intent(Finish.this,Sentence.class);
+
+                }else{
+                    intent = new Intent(Finish.this,Themes.class);
+
+                }
+                intent.putExtra("which_theme",which_theme);
                 finish();
                 startActivity(intent);
 

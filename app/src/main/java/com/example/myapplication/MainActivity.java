@@ -136,78 +136,78 @@ public class MainActivity extends AppCompatActivity {
     public void house(View view) {
 
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",1);
+        intent.putExtra("which_theme",1);
         startActivity(intent);
     }
 
     public void animals(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",2);
+        intent.putExtra("which_theme",2);
         startActivity(intent);
     }
 
     public void person(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",3);
+        intent.putExtra("which_theme",3);
         startActivity(intent);
     }
 
     public void technique(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",4);
+        intent.putExtra("which_theme",4);
         startActivity(intent);
     }
 
     public void nature(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",5);
+        intent.putExtra("which_theme",5);
         startActivity(intent);
     }
 
     public void travel(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",6);
+        intent.putExtra("which_theme",6);
         startActivity(intent);
     }
 
     public void character(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",7);
+        intent.putExtra("which_theme",7);
         startActivity(intent);
     }
 
     public void professions(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",8);
+        intent.putExtra("which_theme",8);
         startActivity(intent);
     }
 
     public void food(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",9);
+        intent.putExtra("which_theme",9);
         startActivity(intent);
     }
 
     public void school(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",10);
+        intent.putExtra("which_theme",10);
         startActivity(intent);
     }
 
     public void clothes(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",11);
+        intent.putExtra("which_theme",11);
         startActivity(intent);
     }
     public void seasons(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",12);
+        intent.putExtra("which_theme",12);
         startActivity(intent);
     }
 
     public void ALL(View view) {
         Intent intent = new Intent(MainActivity.this, Themes.class);
-        intent.putExtra("theme",0);
+        intent.putExtra("which_theme",0);
         startActivity(intent);
     }
 

@@ -38,6 +38,10 @@
 
     <string name="sentence">предложение</string>
     <string name="change_language">перевести на английский</string>
-    <string name="Which_level">Какой уровень?</string>
+    <string name="your_result">результат для уровня</string>
+    <string name="Which_level">Which level?</string>
+    <string name="you_chose">вы выбрали</string>
+    <string name="correct_answers_out_of">правильных ответа из</string>
+
 
 </resources>

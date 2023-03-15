@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -35,7 +37,12 @@ import java.util.Set;
 
 public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
-    int i = 1;
+    int i = 1;String fr_2;
+    int right_answers=0;String fr_3;String fr_4;
+    String eng_harc;String fr_1;
+    int row;
+    Workbook wb;Sheet sheet;String ru_harc;
+    int y_size=0;
     int clicked = 0;
     ArrayList<String> repeated1;
     @Override
@@ -48,7 +55,6 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         SharedPreferences.Editor editor = savedData.edit();
         final Set<String> H = new HashSet<>(savedData.getStringSet("Random_words1", Collections.singleton("5")));
         repeated1 = new ArrayList<String>(H);
-        Log.d("asd", String.valueOf(repeated1));
         i = savedData.getInt("x",1);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("which_theme");
@@ -57,7 +63,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         TextView x = findViewById(R.id.x);
         TextView y = findViewById(R.id.y);
         TextView slash = findViewById(R.id.slash);
-
+        Log.d("asd", "onCreate: "+String.valueOf(which_theme));
 
         x.setTextSize(DeviceTotalWidth/50);
         y.setTextSize(DeviceTotalWidth/50);
@@ -78,27 +84,27 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         from_which.setHeight((int) (DeviceTotalHeight/10));
         InputStream fis =  getResources().openRawResource(R.raw.school);
 
-        final Workbook[] wb = {null};
         try {
-            wb[0] = new HSSFWorkbook(fis);
+            wb = new HSSFWorkbook(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        final Sheet[] sheet = new Sheet[1];
 
-        sheet[0] = wb[0].getSheetAt(which_theme);
-        int y_size= sheet[0].getLastRowNum()+1;
+        sheet = wb.getSheetAt(which_theme);
+        y_size= sheet.getLastRowNum()+1;
         y.setText(String.valueOf(y_size));
         x.setText(String.valueOf(i));
 
         ArrayList<Integer> repeated = new ArrayList<>(4);
 
-        final int[] row = {savedData.getInt("row4",(int) (Math.random() * y_size))};
-        final String[] eng_harc = {sheet[0].getRow(row[0]).getCell(0).getStringCellValue()};
-        final String[] ru_harc = {sheet[0].getRow(row[0]).getCell(5).getStringCellValue()};
+        row = savedData.getInt("row4",(int) (Math.random() * y_size));
+        editor.putInt("row4",row);
+        editor.apply();
+        eng_harc= sheet.getRow(row).getCell(0).getStringCellValue();
+        ru_harc = sheet.getRow(row).getCell(5).getStringCellValue();
         int row1 = (int)(Math.random() * 4 );
         repeated.add(row1+1);
-        final String[] fr_1 = {sheet[0].getRow(row[0]).getCell(row1+1).getStringCellValue()};
+        fr_1 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
         row1 = (int)(Math.random() * 4 );
         while (true){
             if(repeated.contains(row1+1)){
@@ -112,7 +118,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             }
         }
 
-        final String[] fr_2 = {sheet[0].getRow(row[0]).getCell(row1+1).getStringCellValue()};
+        fr_2 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
         row1 = (int)(Math.random() * 4 );
         while (true){
             if(repeated.contains(row1+1)){
@@ -124,7 +130,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 break;
             }
         }
-        final String[] fr_3 = {sheet[0].getRow(row[0]).getCell(row1+1).getStringCellValue()};
+        fr_3 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
         row1 = (int)(Math.random() * 4 );
         while (true){
             if(repeated.contains(row1+1)){
@@ -136,23 +142,23 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 break;
             }
         }
-        final String[] fr_4 = {sheet[0].getRow(row[0]).getCell(row1+1).getStringCellValue()};
+        fr_4 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
 
         if(Locale.getDefault().getLanguage().equals("en")){
-            from_which.setText(eng_harc[0]);
+            from_which.setText(eng_harc);
 
         }else{
-            from_which.setText(ru_harc[0]);
+            from_which.setText(ru_harc);
 
         }
-        first_option.setText(fr_1[0]);
-        second_option.setText(fr_2[0]);
-        third_option.setText(fr_3[0]);
-        fourth_option.setText(fr_4[0]);
+        first_option.setText(fr_1);
+        second_option.setText(fr_2);
+        third_option.setText(fr_3);
+        fourth_option.setText(fr_4);
 
         Button next = findViewById(R.id.next);
         next.setHeight((int) (DeviceTotalHeight/15));
-        repeated1.add(String.valueOf(row[0]));
+        repeated1.add(String.valueOf(row));
 
         next.setOnClickListener(new View.OnClickListener() {
 
@@ -180,11 +186,11 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
                         }
                     }
-                    final String[] eng_harc = {sheet[0].getRow(row).getCell(0).getStringCellValue()};
-                    final String[] ru_harc = {sheet[0].getRow(row).getCell(5).getStringCellValue()};
+                    eng_harc = sheet.getRow(row).getCell(0).getStringCellValue();
+                     ru_harc = sheet.getRow(row).getCell(5).getStringCellValue();
                     int row1 = (int)(Math.random() * 4 );
                     repeated.add(row1+1);
-                    final String[] fr_1 = {sheet[0].getRow(row).getCell(row1+1).getStringCellValue()};
+                     fr_1 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
                     row1 = (int)(Math.random() * 4 );
                     while (true){
                         if(repeated.contains(row1+1)){
@@ -198,7 +204,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         }
                     }
 
-                    final String[] fr_2 = {sheet[0].getRow(row).getCell(row1+1).getStringCellValue()};
+                     fr_2 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
                     row1 = (int)(Math.random() * 4 );
                     while (true){
                         if(repeated.contains(row1+1)){
@@ -210,7 +216,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                             break;
                         }
                     }
-                    final String[] fr_3 = {sheet[0].getRow(row).getCell(row1+1).getStringCellValue()};
+                     fr_3 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
                     row1 = (int)(Math.random() * 4 );
                     while (true){
                         if(repeated.contains(row1+1)){
@@ -222,19 +228,19 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                             break;
                         }
                     }
-                    final String[] fr_4 = {sheet[0].getRow(row).getCell(row1+1).getStringCellValue()};
+                     fr_4 = sheet.getRow(row).getCell(row1+1).getStringCellValue();
 
                     if(Locale.getDefault().getLanguage().equals("en")){
-                        from_which.setText(eng_harc[0]);
+                        from_which.setText(eng_harc);
 
                     }else{
-                        from_which.setText(ru_harc[0]);
+                        from_which.setText(ru_harc);
 
                     }
-                    first_option.setText(fr_1[0]);
-                    second_option.setText(fr_2[0]);
-                    third_option.setText(fr_3[0]);
-                    fourth_option.setText(fr_4[0]);
+                    first_option.setText(fr_1);
+                    second_option.setText(fr_2);
+                    third_option.setText(fr_3);
+                    fourth_option.setText(fr_4);
 
                     editor.putInt("x",i);
                     editor.putInt("row4",row);
@@ -250,15 +256,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @Override
                         public void onClick(View v) {
                             if(clicked==0){
-                                if(first_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                if(first_option.getText().toString().equals(sheet.getRow(finalRow).getCell(1).getStringCellValue())){
                                     first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    right_answers++;
                                 }
                                 else{
                                     first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                    if(second_option.getText().toString().equals(sheet.getRow(finalRow).getCell(1).getStringCellValue())){
                                         second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                                     }
-                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow).getCell(1).getStringCellValue())){
+                                    else if(third_option.getText().toString().equals(sheet.getRow(finalRow).getCell(1).getStringCellValue())){
                                         third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                                     }
@@ -279,15 +286,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @Override
                         public void onClick(View v) {
                             if(clicked==0){
-                                if(second_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                if(second_option.getText().toString().equals(sheet.getRow(finalRow1).getCell(1).getStringCellValue())){
                                     second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    right_answers++;
                                 }
                                 else{
                                     second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                    if(first_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                    if(first_option.getText().toString().equals(sheet.getRow(finalRow1).getCell(1).getStringCellValue())){
                                         first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                                     }
-                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow1).getCell(1).getStringCellValue())){
+                                    else if(third_option.getText().toString().equals(sheet.getRow(finalRow1).getCell(1).getStringCellValue())){
                                         third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                                     }
@@ -308,15 +316,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @Override
                         public void onClick(View v) {
                             if(clicked==0){
-                                if(third_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                if(third_option.getText().toString().equals(sheet.getRow(finalRow2).getCell(1).getStringCellValue())){
                                     third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    right_answers++;
                                 }
                                 else{
                                     third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                    if(second_option.getText().toString().equals(sheet.getRow(finalRow2).getCell(1).getStringCellValue())){
                                         second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                                     }
-                                    else if(first_option.getText().toString().equals(sheet[0].getRow(finalRow2).getCell(1).getStringCellValue())){
+                                    else if(first_option.getText().toString().equals(sheet.getRow(finalRow2).getCell(1).getStringCellValue())){
                                         first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                                     }
@@ -337,15 +346,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                         @Override
                         public void onClick(View v) {
                             if(clicked==0){
-                                if(fourth_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                if(fourth_option.getText().toString().equals(sheet.getRow(finalRow3).getCell(1).getStringCellValue())){
                                     fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                                    right_answers++;
                                 }
                                 else{
                                     fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                                    if(second_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                    if(second_option.getText().toString().equals(sheet.getRow(finalRow3).getCell(1).getStringCellValue())){
                                         second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                                     }
-                                    else if(third_option.getText().toString().equals(sheet[0].getRow(finalRow3).getCell(1).getStringCellValue())){
+                                    else if(third_option.getText().toString().equals(sheet.getRow(finalRow3).getCell(1).getStringCellValue())){
                                         third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                                     }
@@ -369,7 +379,24 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
                 else{
                     savedData.edit().clear().apply();
-                    Intent intent = new Intent(Sentence.this,Start.class);
+                    Intent intent = new Intent(Sentence.this,Finish.class);
+                    switch (which_theme){
+                        case 12:
+                            intent.putExtra("which_theme",12);
+                            break;
+                        case 13:
+                            intent.putExtra("which_theme",13);
+                            break;
+                        case 14:
+                            intent.putExtra("which_theme",14);
+                            break;
+                        case 15:
+                            intent.putExtra("which_theme",15);
+                            break;
+                    }
+                    intent.putExtra("result",right_answers);
+                    intent.putExtra("size",y_size);
+                    finish();
                     startActivity(intent);
                 }
 
@@ -380,15 +407,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @Override
             public void onClick(View v) {
                 if(clicked==0){
-                    if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                    if(first_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                         first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        right_answers++;
                     }
                     else{
                         first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        if(second_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                         }
-                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        else if(third_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                         }
@@ -408,15 +436,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @Override
             public void onClick(View v) {
                 if(clicked==0){
-                    if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                    if(second_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                         second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        right_answers++;
                     }
                     else{
                         second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                        if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        if(first_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                         }
-                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        else if(third_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                         }
@@ -436,15 +465,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @Override
             public void onClick(View v) {
                 if(clicked==0){
-                    if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                    if(third_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                         third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        right_answers++;
                     }
                     else{
                         third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        if(second_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                         }
-                        else if(first_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        else if(first_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             first_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                         }
@@ -464,15 +494,16 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @Override
             public void onClick(View v) {
                 if(clicked==0){
-                    if(fourth_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                    if(fourth_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                         fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
+                        right_answers++;
                     }
                     else{
                         fourth_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values2,null));
-                        if(second_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        if(second_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             second_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
                         }
-                        else if(third_option.getText().toString().equals(sheet[0].getRow(row[0]).getCell(1).getStringCellValue())){
+                        else if(third_option.getText().toString().equals(sheet.getRow(row).getCell(1).getStringCellValue())){
                             third_option.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.values1,null));
 
                         }

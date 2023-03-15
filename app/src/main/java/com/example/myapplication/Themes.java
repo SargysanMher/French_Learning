@@ -29,10 +29,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     String french="";
     int i = 0; int hint1 =0;int j=1;int y_size=0;int y_size1=0;int answer1;int char2;int n = 1;
     StringBuilder hint2;String letters;
-    int x_size;int random;
-
+    int x_size;int random;int row;int gh = 0;
+    Workbook wb;Sheet sheet;
     Button next,hint,check,answer;
-    String word_from_edittext;
+    String word_from_edittext,fr,eng,ru;
     ArrayList<String> Random_words_eng;
 
     @SuppressLint("MissingInflatedId")
@@ -86,22 +86,20 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         next.setHeight(DeviceTotalHeight/20);
         next.setMaxLines(1);
         Bundle extras = getIntent().getExtras();
-        int which_theme = extras.getInt("theme");
+        int which_theme = extras.getInt("which_theme");
         x.setText(String.valueOf(x_size));
         InputStream fis =  getResources().openRawResource(R.raw.school);
 
-        final Workbook[] wb = {null};
         try {
-            wb[0] = new HSSFWorkbook(fis);
+            wb = new HSSFWorkbook(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        final Sheet[] sheet = new Sheet[1];
 
 
         if(which_theme!=0){
-            sheet[0] = wb[0].getSheetAt(which_theme - 1);
-            y_size= sheet[0].getLastRowNum()+1;
+            sheet = wb.getSheetAt(which_theme - 1);
+            y_size= sheet.getLastRowNum()+1;
         }else{
             random = savedData.getInt("rand1",savedData.getInt("rand",(int) (Math.random() * 12)));
             int hj = savedData.getInt("asd",0);
@@ -109,10 +107,10 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
             if(hj==0){
                 for(int i = 0;i<12;i++){
-                    sheet[0] = wb[0].getSheetAt(i);
-                    y_size+= sheet[0].getLastRowNum()+1;
+                    sheet = wb.getSheetAt(i);
+                    y_size+= sheet.getLastRowNum()+1;
                 }
-                sheet[0] = wb[0].getSheetAt((int) (Math.random() * 12) );
+                sheet = wb.getSheetAt((int) (Math.random() * 12) );
 
                 hj++;
                 editor.putInt("asd",hj);
@@ -123,7 +121,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             }
             Log.d("qwe", "onCreate: "+String.valueOf(random));
 
-            sheet[0]=wb[0].getSheetAt(random);
+            sheet=wb.getSheetAt(random);
             y_size=savedData.getInt("y",y_size);
 
         }
@@ -133,20 +131,20 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
         y_size1=y_size;
 
-        y_size= sheet[0].getLastRowNum()+1;
+        y_size= sheet.getLastRowNum()+1;
 
-        final int[] row = {(int) (Math.random() * y_size)};
-        row[0]=savedData.getInt("row",0);
-        final String[] eng = {sheet[0].getRow(row[0]).getCell(0).getStringCellValue()};
-        final String[] ru = {sheet[0].getRow(row[0]).getCell(1).getStringCellValue()};
-        final String[] fr = {sheet[0].getRow(row[0]).getCell(2).getStringCellValue()};
+        row = (int) (Math.random() * y_size);
+        row=savedData.getInt("row",0);
+        eng = sheet.getRow(row).getCell(0).getStringCellValue();
+        ru = sheet.getRow(row).getCell(1).getStringCellValue();
+        fr = sheet.getRow(row).getCell(2).getStringCellValue();
         if(Locale.getDefault().getLanguage().equals("en")){
-            text.setText(eng[0]);
+            text.setText(eng);
 
         }else{
-            text.setText(ru[0]);
+            text.setText(ru);
         }
-        final int[] gh = {savedData.getInt("gh", 0)};
+         gh =savedData.getInt("gh", 0);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,58 +160,58 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     }
                     assert wb != null;
                 if (Random_words_eng.size()<y_size1) {
-                    if(gh[0] ==0){
-                        Random_words_eng.add(eng[0]);
-                        gh[0]++;
-                        editor.putInt("gh", gh[0]);
+                    if(gh ==0){
+                        Random_words_eng.add(eng);
+                        gh++;
+                        editor.putInt("gh", gh);
                     }
                     Log.d("asd", String.valueOf(Random_words_eng.size()));
                     if(which_theme!=0){
-                        sheet[0] = wb.getSheetAt(which_theme - 1);
-                        y_size= sheet[0].getLastRowNum()+1;
+                        sheet = wb.getSheetAt(which_theme - 1);
+                        y_size= sheet.getLastRowNum()+1;
                     }
                     else{
                         random=(int) (Math.random() * 12);
-                        sheet[0] = wb.getSheetAt( random);
+                        sheet = wb.getSheetAt( random);
                         editor.putInt("rand1",random);
 
-                        y_size= sheet[0].getLastRowNum()+1;
+                        y_size= sheet.getLastRowNum()+1;
 
                     }
                     int row = (int)(Math.random() * y_size );
                     while(true){
-                        eng[0] = sheet[0].getRow(row).getCell(0).getStringCellValue();
+                        eng = sheet.getRow(row).getCell(0).getStringCellValue();
 
-                        if (Random_words_eng.contains(eng[0])){
+                        if (Random_words_eng.contains(eng)){
                             if(which_theme==0){
                                 random=(int) (Math.random() * 12);
-                                sheet[0] = wb.getSheetAt( random);
+                                sheet = wb.getSheetAt( random);
                                 editor.putInt("rand1",random);
 
-                                y_size= sheet[0].getLastRowNum()+1;
+                                y_size= sheet.getLastRowNum()+1;
                             }
 
 
                             row = (int)(Math.random() * y_size );
 
                         }else{
-                            Random_words_eng.add(eng[0]);
+                            Random_words_eng.add(eng);
                             break;
                         }
                     }
                     word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
 
-                    if (word_from_edittext.equals(fr[0].toLowerCase(Locale.ROOT))) {
+                    if (word_from_edittext.equals(fr.toLowerCase(Locale.ROOT))) {
                         i++;
                     }
 
-                    fr[0] = sheet[0].getRow(row).getCell(2).getStringCellValue();
-                    ru[0] = sheet[0].getRow(row).getCell(1).getStringCellValue();
+                    fr = sheet.getRow(row).getCell(2).getStringCellValue();
+                    ru = sheet.getRow(row).getCell(1).getStringCellValue();
                     if(Locale.getDefault().getLanguage().equals("en")){
-                        text.setText(eng[0]);
+                        text.setText(eng);
 
                     }else{
-                        text.setText(ru[0]);
+                        text.setText(ru);
                     }
 
                     editText.setText("");
@@ -230,7 +228,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     hint.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            hint2= new StringBuilder((sheet[0].getRow(finalRow).getCell(2).getStringCellValue()));
+                            hint2= new StringBuilder((sheet.getRow(finalRow).getCell(2).getStringCellValue()));
                             char2 = (int)(Math.random() * hint2.length());
                             letters= String.valueOf(hint2.charAt(char2));
                             for(int i = 0;i<(hint2.length()-3)/3;){
@@ -255,7 +253,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     answer.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                          textView.setText(sheet[0].getRow(finalRow).getCell(2).getStringCellValue());
+                          textView.setText(sheet.getRow(finalRow).getCell(2).getStringCellValue());
                           if(n==1){
                               answer1++;
                               n=2;
@@ -269,7 +267,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                         @Override
                         public void onClick(View v) {
                             word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
-                            if(word_from_edittext.equals(sheet[0].getRow(finalRow1).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
+                            if(word_from_edittext.equals(sheet.getRow(finalRow1).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                                 checked.setText("✅");
 
 
@@ -286,7 +284,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 } else {
 
                     word_from_edittext = editText.getText().toString().toLowerCase(Locale.ROOT);
-                    if (word_from_edittext.equals(fr[0].toLowerCase(Locale.ROOT))) {
+                    if (word_from_edittext.equals(fr.toLowerCase(Locale.ROOT))) {
                         i++;
                     }
                     savedData.edit().clear().apply();
@@ -309,23 +307,23 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
 
         });
-        Sheet finalSheet1 = sheet[0];
+        Sheet finalSheet1 = sheet;
         answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                textView.setText(finalSheet1.getRow(row[0]).getCell(2).getStringCellValue());
+                textView.setText(finalSheet1.getRow(row).getCell(2).getStringCellValue());
                 if(n==1) {
                     answer1++;
                 }
                 n=2;
             }
         });
-        Sheet finalSheet2 = sheet[0];
+        Sheet finalSheet2 = sheet;
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hint2= new StringBuilder((finalSheet2.getRow(row[0]).getCell(2).getStringCellValue()));
+                hint2= new StringBuilder((finalSheet2.getRow(row).getCell(2).getStringCellValue()));
                 char2 = (int)(Math.random() * hint2.length());
                 letters= String.valueOf(hint2.charAt(char2));
                 for(int i = 0;i<(hint2.length()-3)/3;){
@@ -348,12 +346,12 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 j=2;
             }
         });
-        Sheet finalSheet3 = sheet[0];
+        Sheet finalSheet3 = sheet;
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
-                if(word_from_edittext.equals(finalSheet3.getRow(row[0]).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
+                if(word_from_edittext.equals(finalSheet3.getRow(row).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                     checked.setText("✅");
 
 
