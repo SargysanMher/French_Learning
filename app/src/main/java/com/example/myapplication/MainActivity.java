@@ -17,6 +17,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     String stars;
+    public static  Activity fa;
 
 
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         loadLocale();
         setContentView(R.layout.activity_main);
         TextView house = findViewById(R.id.house);
+        fa=this;
         SharedPreferences savedData2 = getSharedPreferences("savedresult2",MODE_PRIVATE);
         savedData2.edit().clear().apply();
 

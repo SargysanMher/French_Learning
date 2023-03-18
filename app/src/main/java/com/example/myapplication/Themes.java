@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -388,9 +390,33 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
         switch (item.getItemId()){
             case R.id.back:
-                Intent i = new Intent(Themes.this,MainActivity.class);
-                startActivity(i);
-                finish();
+
+                Intent intent = new Intent(Themes.this,MainActivity.class);
+                if(i>=1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Themes.this);
+                    builder.setCancelable(true);
+                    builder.setTitle(R.string.sure);
+                    builder.setMessage(R.string.message);
+                    builder.setPositiveButton(R.string.back_to_main_menu, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            MainActivity.fa.finish();
+                            finish();
+                            startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+                    builder.show();
+                }else{
+                    MainActivity.fa.finish();
+                    finish();
+                    startActivity(intent);
+                }
+
                 return true;
 
             case R.id.restart:
@@ -432,5 +458,54 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = prefs.getString("Mylang","");
         setlocale(language);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(i>=1){
+            AlertDialog.Builder builder = new AlertDialog.Builder(Themes.this);
+            builder.setCancelable(true);
+            builder.setTitle(R.string.sure);
+            builder.setMessage(R.string.message);
+            builder.setPositiveButton(R.string.back_to_main_menu, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Themes.super.onBackPressed();
+
+                }
+            });
+            builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            builder.show();
+        }else{
+            Intent intent = new Intent(Themes.this,MainActivity.class);
+            if(i>=1){
+                AlertDialog.Builder builder = new AlertDialog.Builder(Themes.this);
+                builder.setCancelable(true);
+                builder.setTitle(R.string.sure);
+                builder.setMessage(R.string.message);
+                builder.setPositiveButton(R.string.back_to_main_menu, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.fa.finish();
+                        finish();
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.show();
+            }else{
+                MainActivity.fa.finish();
+                finish();
+                startActivity(intent);
+            }
+        }
     }
 }

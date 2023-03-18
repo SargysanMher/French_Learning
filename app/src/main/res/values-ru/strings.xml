@@ -2,46 +2,49 @@
 <resources>
     <string name="app_name">Изучение французского</string>
     <string name="french_learning">ИЗУЧЕНИЕ ФРАНЦУЗСКОГО</string>
-    <string name="seasons">сезоны</string>
-    <string name="nature">природа</string>
-    <string name="travel">путешествовие</string>
-    <string name="character">характер</string>
-    <string name="technique">техника</string>
-    <string name="clothes">одежда</string>
-    <string name="house">дом</string>
-    <string name="food">еда</string>
-    <string name="person">человек</string>
-    <string name="professions">профессия</string>
-    <string name="school">школа</string>
-    <string name="animals">животные</string>
-    <string name="translate_the_word_into_french">перевести слово на французский</string>
-    <string name="hint">подсказка</string>
-    <string name="check">проверить</string>
-    <string name="next">следующее</string>
-    <string name="you_correctly_translated">вы правильно перевели </string>
+    <string name="seasons">Сезоны</string>
+    <string name="nature">Природа</string>
+    <string name="travel">Путешествовие</string>
+    <string name="character">Характер</string>
+    <string name="technique">Техника</string>
+    <string name="clothes">Одежда</string>
+    <string name="house">Дом</string>
+    <string name="food">Еда</string>
+    <string name="person">Человек</string>
+    <string name="professions">Профессия</string>
+    <string name="school">Школа</string>
+    <string name="animals">Животные</string>
+    <string name="translate_the_word_into_french">Перевести слово на французский</string>
+    <string name="hint">Подсказка</string>
+    <string name="check">Проверить</string>
+    <string name="next">Следующее</string>
+    <string name="you_correctly_translated">Вы правильно перевели </string>
     <string name="words_out_of">слова из</string>
-    <string name="back_to_main_menu">назад</string>
-    <string name="restart">рестарт</string>
+    <string name="back_to_main_menu">Назад</string>
+    <string name="restart">Рестарт</string>
     <string name="answer">ответ</string>
     <string name="mistakes">ошиб</string>
     <string name="mistake">ошибка</string>
     <string name="right_answer">правильный ответ</string>
 
     <string name="right_answers">правильных ответ</string>
-    <string name="your_result_for_this_theme_is">ваш результат для этой темы </string>
+    <string name="your_result_for_this_theme_is">Ваш результат для этой темы </string>
     <string name="hints_used">подсказ</string>
     <string name="answers_used">использованных ответ</string>
-    <string name="vocabulary">словарь</string>
+    <string name="vocabulary">Словарь</string>
     <string name="answer_used">ответ использован</string>
     <string name="hint_used">подсказка</string>
-    <string name="which_translation_is_correct">какой перевод правильный</string>
+    <string name="which_translation_is_correct">Какой перевод правильный</string>
 
-    <string name="sentence">предложение</string>
-    <string name="change_language">перевести на английский</string>
+    <string name="sentence">Предложение</string>
+    <string name="change_language">Перевести на английский</string>
     <string name="your_result">результат для уровня</string>
     <string name="Which_level">Which level?</string>
-    <string name="you_chose">вы выбрали</string>
+    <string name="you_chose">Вы выбрали</string>
     <string name="correct_answers_out_of">правильных ответа из</string>
+    <string name="cancel">Отмена</string>
+    <string name="sure">Уверены?</string>
+    <string name="message">весь прогресс в данной теме будет потерян</string>
 
 
 </resources>

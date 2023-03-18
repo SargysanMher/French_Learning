@@ -213,6 +213,7 @@ public class Finish extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.fa.finish();
                 SharedPreferences savedData = getSharedPreferences("savedData",MODE_PRIVATE);
                 SharedPreferences.Editor editor = savedData.edit();
                 element = savedData.getInt(String.valueOf(which_theme+"int"),counter1);

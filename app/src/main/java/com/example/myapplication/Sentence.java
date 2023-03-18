@@ -7,6 +7,8 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -540,12 +542,32 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
         switch (item.getItemId()){
             case R.id.back:
-                Intent i = new Intent(Sentence.this,Start.class);
-                finish();
+                Intent intent = new Intent(Sentence.this,Start.class);
+                if(right_answers>=1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Sentence.this);
+                    builder.setCancelable(true);
+                    builder.setTitle(R.string.sure);
+                    builder.setMessage(R.string.message);
+                    builder.setPositiveButton(R.string.back_to_main_menu, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            MainActivity.fa.finish();
+                            finish();
+                            startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+                    builder.show();
+                }else{
+                    finish();
+                    startActivity(intent);
+                }
 
-                startActivity(i);
                 return true;
-
             case R.id.restart:
                 SharedPreferences savedData = getSharedPreferences("savedresult1",MODE_PRIVATE);
                 savedData.edit().clear().apply();
@@ -585,5 +607,30 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(Sentence.this,Start.class);
+        if(right_answers>=1){
+            AlertDialog.Builder builder = new AlertDialog.Builder(Sentence.this);
+            builder.setCancelable(true);
+            builder.setTitle(R.string.sure);
+            builder.setMessage(R.string.message);
+            builder.setPositiveButton(R.string.back_to_main_menu, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            builder.show();
+        }else{
+            finish();
+            startActivity(intent);
+        }
     }
 }

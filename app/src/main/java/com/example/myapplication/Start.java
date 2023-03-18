@@ -27,6 +27,7 @@ int which_theme;
         loadLocale();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         SharedPreferences savedData1 = getSharedPreferences("savedresult1",MODE_PRIVATE);
         SharedPreferences savedData2 = getSharedPreferences("savedresult2",MODE_PRIVATE);
@@ -41,7 +42,8 @@ int which_theme;
     }
 
     public void rules(View view) {
-
+        Intent intent = new Intent(Start.this,Rules.class);
+        startActivity(intent);
     }
 
 
@@ -119,5 +121,12 @@ int which_theme;
                 });
         builder.create().show();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 }
