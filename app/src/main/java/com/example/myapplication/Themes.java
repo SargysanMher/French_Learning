@@ -33,6 +33,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     StringBuilder hint2;String letters;
     int x_size;int random;int row;int gh = 0;
     Workbook wb;Sheet sheet;
+    EditText editText;
     Button next,hint,check,answer;
     String word_from_edittext,fr,eng,ru;
     ArrayList<String> Random_words_eng;
@@ -42,7 +43,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
-        setContentView(R.layout.activity_house);
+        setContentView(R.layout.activity_themes);
         SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
         SharedPreferences.Editor editor = savedData.edit();
         final Set<String> H = new HashSet<>(savedData.getStringSet("Random_words",new HashSet<>()));
@@ -56,6 +57,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         check = findViewById(R.id.check);
         answer = findViewById(R.id.answer);
         TextView text = findViewById(R.id.text);
+        i = savedData.getInt("result",0);
         TextView x = findViewById(R.id.x);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
@@ -68,7 +70,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         TextView slash = findViewById(R.id.slash);
         TextView checked = findViewById(R.id.checked);
         TextView textView = findViewById(R.id.textview);
-        EditText editText = findViewById(R.id.edittext);
+        editText = findViewById(R.id.edittext);
         text.setTextSize(DeviceTotalWidth/40);
         editText.setMaxWidth(DeviceTotalWidth/20);
         editText.setWidth(DeviceTotalWidth/3);
@@ -201,8 +203,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                             break;
                         }
                     }
-                    word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
-
+                    word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT).trim();
                     if (word_from_edittext.equals(fr.toLowerCase(Locale.ROOT))) {
                         i++;
                     }
@@ -218,6 +219,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
 
                     editText.setText("");
                     x_size = Random_words_eng.size();
+                    editor.putInt("result",i);
                     editor.putInt("x",x_size);
                     HashSet <String> hashSet = new HashSet<>(Random_words_eng);
                     editor.putStringSet("Random_words", hashSet);
@@ -268,7 +270,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     check.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
+                            word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT).trim();
                             if(word_from_edittext.equals(sheet.getRow(finalRow1).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                                 checked.setText("✅");
 
@@ -285,7 +287,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                     });
                 } else {
 
-                    word_from_edittext = editText.getText().toString().toLowerCase(Locale.ROOT);
+                    word_from_edittext = editText.getText().toString().toLowerCase(Locale.ROOT).trim();
                     if (word_from_edittext.equals(fr.toLowerCase(Locale.ROOT))) {
                         i++;
                     }
@@ -352,7 +354,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT);
+                word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT).trim();
                 if(word_from_edittext.equals(finalSheet3.getRow(row).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                     checked.setText("✅");
 
@@ -423,6 +425,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                 recreate();
                 SharedPreferences savedData = getSharedPreferences("savedresult2",MODE_PRIVATE);
                 savedData.edit().clear().apply();
+                editText.setText("");
                 return true;
             case R.id.change_language:
                 if(Locale.getDefault().getLanguage().equals("en")){

@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -58,6 +57,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         final Set<String> H = new HashSet<>(savedData.getStringSet("Random_words1", Collections.singleton("5")));
         repeated1 = new ArrayList<String>(H);
         i = savedData.getInt("x",1);
+        right_answers = savedData.getInt("result",0);
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("which_theme");
         float DeviceTotalWidth = metrics.widthPixels;
@@ -245,6 +245,8 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
                     fourth_option.setText(fr_4);
 
                     editor.putInt("x",i);
+                    editor.putInt("result",right_answers);
+
                     editor.putInt("row4",row);
                     int finalRow = row;
                     HashSet<String> hashSet = new HashSet<>(repeated1);

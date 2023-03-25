@@ -16,6 +16,7 @@
             android:id="@+id/language"
             android:layout_width="0sp"
             android:layout_height="0sp"
+
             android:onClick="change"
             android:src="@drawable/language_gray"
             app:layout_constraintHeight_percent="0.02"
@@ -39,6 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0sp"
+            android:paddingHorizontal="20dp"
             android:maxLines="1"
             android:gravity="center"
             android:autoSizeTextType="uniform"
@@ -57,19 +59,30 @@
 
         </TextView>
 
+        <View
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="0.031"
+            android:layout_height="match_parent"
+            android:id="@+id/padding">
 
+        </View>
+        <View
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="0.031"
+            android:layout_height="match_parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/padding_right">
 
-
+        </View>
         <ImageView
 
             android:layout_height="150dp"
-            android:padding="15dp"
             android:onClick="house"
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.41"
             android:background="@drawable/values"
-            android:paddingHorizontal="25dp"
             android:id="@+id/home"
+            app:layout_constraintLeft_toRightOf="@id/padding"
             app:layout_constraintTop_toBottomOf="@id/view"
             android:src="@drawable/house"
 
@@ -88,6 +101,8 @@
             app:layout_constraintWidth_percent="0.41"
             android:layout_height="150dp"
             app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintLeft_toRightOf="@id/padding"
+
             android:background="@drawable/values"
             android:padding="15dp"
             android:onClick="animals"
@@ -109,6 +124,7 @@
             app:layout_constraintTop_toBottomOf="@id/view2"
             android:background="@drawable/values"
             android:padding="15dp"
+            app:layout_constraintLeft_toRightOf="@id/padding"
 
             android:onClick="person"
             android:id="@+id/person"
@@ -129,6 +145,7 @@
             app:layout_constraintTop_toBottomOf="@id/view3"
             android:background="@drawable/values"
             android:padding="15dp"
+            app:layout_constraintLeft_toRightOf="@id/padding"
 
             android:id="@+id/clothes"
             android:src="@drawable/clothes">
@@ -144,6 +161,7 @@
         <ImageView
             android:layout_width="0sp"
             android:padding="15dp"
+            app:layout_constraintLeft_toRightOf="@id/padding"
 
             app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="school"
@@ -168,6 +186,7 @@
             app:layout_constraintTop_toBottomOf="@id/view5"
             android:background="@drawable/values"
             android:padding="15dp"
+            app:layout_constraintLeft_toRightOf="@id/padding"
 
             android:id="@+id/food"
             android:src="@drawable/food">
@@ -204,8 +223,8 @@
             android:background="@drawable/values"
             android:padding="15dp"
 
-            app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/seasons"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
+           android:id="@+id/seasons"
             android:src="@drawable/seasons">
 
         </ImageView>
@@ -220,7 +239,7 @@
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:onClick="professions"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
             android:background="@drawable/values"
             android:padding="15dp"
 
@@ -243,7 +262,7 @@
             android:background="@drawable/values"
             android:padding="15dp"
 
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
             app:layout_constraintTop_toBottomOf="@id/view8"
             android:id="@+id/character"
             android:src="@drawable/character">
@@ -259,7 +278,7 @@
         <ImageView
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
             app:layout_constraintTop_toBottomOf="@id/view9"
             android:background="@drawable/values"
             android:padding="15dp"
@@ -285,7 +304,7 @@
             android:background="@drawable/values"
             android:padding="15dp"
 
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
             android:src="@drawable/nature">
 
         </ImageView>
@@ -300,7 +319,7 @@
             android:layout_width="0sp"
             app:layout_constraintWidth_percent="0.41"            android:layout_height="150dp"
             android:id="@+id/tecknology"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/padding_right"
             app:layout_constraintTop_toBottomOf="@id/view11"
             android:onClick="technique"
             android:background="@drawable/values"

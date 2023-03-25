@@ -100,7 +100,7 @@
         <EditText
             android:layout_width="match_parent"
             android:minWidth="100dp"
-            android:inputType="textNoSuggestions"
+            android:inputType="textVisiblePassword|textNoSuggestions"
             android:id="@+id/edittext"
             android:layout_height="wrap_content">
 

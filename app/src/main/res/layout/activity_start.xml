@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/fon1"
-
+    android:paddingHorizontal="20dp"
     android:layout_height="match_parent"
     tools:context=".Start">
     <TextView
@@ -54,6 +54,8 @@
         tools:ignore="MissingConstraints">
 
     </TextView>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0sp"
@@ -61,10 +63,12 @@
         app:layout_constraintTop_toBottomOf="@id/view"
         app:autoSizeTextType="uniform"
         android:gravity="center"
+
         android:text="@string/vocabulary"
         android:onClick="vocabulary"
+
         app:layout_constraintHeight_percent="0.1"
-        android:background="@color/gray"
+        android:background="@drawable/values"
         android:textColor="@color/red"
         tools:ignore="MissingConstraints">
 
@@ -88,7 +92,7 @@
         android:text="@string/sentence"
         android:onClick="sentence"
         app:layout_constraintHeight_percent="0.1"
-        android:background="@color/gray"
+        android:background="@drawable/values"
         android:textColor="@color/red"
         tools:ignore="MissingConstraints">
 
