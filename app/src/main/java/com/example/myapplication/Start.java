@@ -37,7 +37,8 @@ int which_theme;
         int DeviceTotalWidth = metrics.widthPixels;
         int DeviceTotalHeight = metrics.heightPixels;
         TextView French_Learning = findViewById(R.id.french_learning);
-        French_Learning.setTextSize(DeviceTotalWidth/40);
+        French_Learning.setWidth(DeviceTotalWidth/2);
+
 
     }
 

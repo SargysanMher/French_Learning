@@ -10,6 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:autoSizeTextType="uniform"
+
         android:gravity="center"
         android:textSize="50sp"
         android:id="@+id/french_learning"
