@@ -64,8 +64,9 @@ public class Finish extends AppCompatActivity {
         score.setText(" "+String.valueOf(result)+" ");
         score1.setText(" "+String.valueOf(size));
         TextView answers = findViewById(R.id.answers);
+        answers.setTextSize(DeviceTotalWidth/30);
         TextView answer1 = findViewById(R.id.answer);
-        answer1.setTextSize(DeviceTotalWidth/40);
+        answer1.setTextSize(DeviceTotalWidth/30);
         if(which_theme<12){
             if(answer==1){
                 answer1.setText(R.string.answer_used);
@@ -92,7 +93,7 @@ public class Finish extends AppCompatActivity {
         TextView hints = findViewById(R.id.hints);
         hints.setTextSize(DeviceTotalWidth/40);
         TextView hint1 = findViewById(R.id.hint);
-        hint1.setTextSize(DeviceTotalWidth/40);
+        hint1.setTextSize(DeviceTotalWidth/30);
         if(which_theme<12){
 
             if(hint==1){
@@ -115,7 +116,7 @@ public class Finish extends AppCompatActivity {
         TextView mistakes = findViewById(R.id.mistakes);
         mistakes.setTextSize(DeviceTotalWidth/40);
         TextView mistake = findViewById(R.id.mistake);
-        mistake.setTextSize(DeviceTotalWidth/40);
+        mistake.setTextSize(DeviceTotalWidth/30);
         if(size-result==1){
             mistake.setText(R.string.mistake);
         }else{
@@ -131,9 +132,9 @@ public class Finish extends AppCompatActivity {
 
         mistakes.setText(String.valueOf(size-result) + " ");
         TextView right = findViewById(R.id.right_answers);
-        right.setTextSize(DeviceTotalWidth/40);
+        right.setTextSize(DeviceTotalWidth/30);
         TextView right_answer = findViewById(R.id.right_answer);
-        right_answer.setTextSize(DeviceTotalWidth/40);
+        right_answer.setTextSize(DeviceTotalWidth/30);
         if(result ==1){
             right_answer.setText(R.string.right_answer);
         }else{
@@ -150,7 +151,7 @@ public class Finish extends AppCompatActivity {
 
 
         TextView stars1 = findViewById(R.id.stars);
-        stars1.setTextSize(DeviceTotalWidth/50);
+        stars1.setTextSize(DeviceTotalWidth/40);
         int counter1 =(int) result*100/size;
         if(counter1<100/5){
             stars = " ✰✰✰";
@@ -179,7 +180,7 @@ public class Finish extends AppCompatActivity {
             stars1.setText(stars);
         }
         TextView tokos = findViewById(R.id.tokos);
-        tokos.setTextSize(DeviceTotalWidth/50);
+        tokos.setTextSize(DeviceTotalWidth/40);
         tokos.setText(String.valueOf(counter1)+"%");
         Button button=findViewById(R.id.back);
         TextView your = findViewById(R.id.your_result);
@@ -207,7 +208,7 @@ public class Finish extends AppCompatActivity {
             your.setText(res.getString(R.string.your_result) + " "+level);
 
         }
-        your.setTextSize(DeviceTotalWidth/55);
+        your.setTextSize(DeviceTotalWidth/45);
         button.setHeight((int) (DeviceTotalHeight/15));
         button.setWidth((int) (DeviceTotalWidth/3));
         button.setOnClickListener(new View.OnClickListener() {

@@ -82,10 +82,9 @@
         </View>
         <TextView
             android:layout_width="wrap_content"
-            android:gravity="center"
             android:textSize="20sp"
             android:id="@+id/text"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             android:text=""
             tools:ignore="MissingConstraints">
@@ -102,7 +101,9 @@
             android:minWidth="100dp"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:id="@+id/edittext"
+            android:backgroundTint="@color/black"
             android:layout_height="wrap_content">
+
 
         </EditText>
         <TextView

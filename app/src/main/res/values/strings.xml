@@ -44,4 +44,12 @@
     <string name="cancel">Cancel</string>
     <string name="sure">Sure?</string>
     <string name="message">All progress in this theme will be lost</string>
+    <string name="vocab_rules">Vocabulary has 12 topics and the \"All\" section.
+In each topic, you need to translate the suggested words related to this topic.\n In the \"All\" section, words from all topics are randomly selected.\n
+There are buttons:\n\t\t Hint:\n\t\t\tThe translation appears, but some letters are not visible.\n
+    Answer: \n\t\t\t translation appears.\n
+    Check:\n\t\t\t checking the user\'s translation.\n
+Next:\n\t\t\t moves to the next word.\n2 articles can be used, une and un. </string>
+    <string name="sentences_rules">There is a sentence in English / Russian and 4 translation options in French, you need to choose which of the translations is correct.</string>
+    <string name="vocabulary1">Vocabulary</string>
 </resources>

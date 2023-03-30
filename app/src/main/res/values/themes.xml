@@ -15,4 +15,12 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="DarkEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="colorControlNormal">#555555</item>
+        <item name="colorControlActivated">#888888</item>
+    </style>
+    <style name="PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:dropDownWidth">200dp</item>
+        <item name="android:dropDownHeight">250dp</item>
+    </style>
 </resources>

@@ -6,5 +6,105 @@
     android:background="@drawable/fon1"
     android:layout_height="match_parent"
     tools:context=".Rules">
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+            app:layout_constraintHeight_percent="0.04"
+            app:layout_constraintWidth_percent="0.1"
+            android:autoSizeTextType="uniform"
+            android:onClick="back"
+            android:id="@+id/xach"
+            android:text="⬅">
+
+        </TextView>
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:text="@string/vocabulary1"
+            android:textSize="50sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/vocab_rules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vocab_rules"
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/text"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:maxLines="1"
+            android:text="@string/sentence"
+            android:textSize="50sp"
+            app:layout_constraintTop_toBottomOf="@id/text"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+        <ImageView
+            android:id="@+id/language"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
+
+            android:onClick="change"
+            android:src="@drawable/language_gray"
+            app:layout_constraintHeight_percent="0.03"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.13"
+            tools:ignore="MissingConstraints,UsingOnClickInXml">
+
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sentences_rules"
+            android:id="@+id/sentence_rules"
+
+            android:textSize="50sp"
+            app:layout_constraintTop_toBottomOf="@id/text1"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="❮"
+            app:layout_constraintTop_toTopOf="@id/text"
+            android:id="@+id/click1"
+            android:textSize="50sp"
+            android:rotation="-90"
+            app:layout_constraintLeft_toRightOf="@id/text"
+            tools:ignore="MissingConstraints,NotSibling">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="❮"
+            android:id="@+id/click2"
+            android:textSize="50sp"
+            android:rotation="-90"
+            app:layout_constraintLeft_toRightOf="@id/text1"
+            app:layout_constraintTop_toTopOf="@id/text1"
+            tools:ignore="MissingConstraints,NotSibling">
+
+        </TextView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,7 +84,7 @@ public class Sentence extends AppCompatActivity implements PopupMenu.OnMenuItemC
         fourth_option.setHeight((int) (DeviceTotalHeight/10));
 
         from_which.setHeight((int) (DeviceTotalHeight/10));
-        InputStream fis =  getResources().openRawResource(R.raw.school);
+        InputStream fis =  getResources().openRawResource(R.raw.words);
 
         try {
             wb = new HSSFWorkbook(fis);

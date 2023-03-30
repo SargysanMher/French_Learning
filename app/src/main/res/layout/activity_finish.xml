@@ -17,8 +17,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/you_correctly_translated"
+            android:textSize="50sp"
+
             android:text="@string/you_correctly_translated"
             tools:ignore="MissingConstraints">
 
@@ -27,8 +28,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
+
 
             android:id="@+id/score"
             android:textColor="@color/green"
@@ -39,8 +40,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="50sp"
+
             android:id="@+id/words_out_of"
             android:text="@string/words_out_of"
             tools:ignore="MissingConstraints">
@@ -51,8 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/score1"
-            android:textSize="20sp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
+
 
             android:textColor="@color/green"
             tools:ignore="MissingConstraints">
@@ -81,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/answers"
-                android:textSize="30sp"
+                android:textSize="50sp"
                 android:textColor="@color/red"
                 android:layout_height="wrap_content">
             </TextView>
@@ -89,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:text="@string/answers_used"
                 android:id="@+id/answer"
-                android:textSize="30sp"
+                android:textSize="50sp"
 
                 android:layout_height="wrap_content">
             </TextView>
@@ -103,7 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/hints"
-                android:textSize="30sp"
+                android:textSize="50sp"
                 android:textColor="@color/red"
                 android:layout_height="wrap_content">
             </TextView>
@@ -111,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:text="@string/hints_used"
                 android:id="@+id/hint"
-                android:textSize="30sp"
+                android:textSize="50sp"
 
                 android:layout_height="wrap_content">
             </TextView>
@@ -129,7 +130,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/red"
-                android:textSize="30sp">
+                android:textSize="50sp"
+                >
 
             </TextView>
 
@@ -139,7 +141,8 @@
                 android:id="@+id/mistake"
                 android:text="@string/mistakes"
 
-                android:textSize="30sp">
+                android:textSize="50sp"
+                >
 
             </TextView>
 
@@ -154,14 +157,14 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/right_answers"
                 android:textColor="@color/green"
-                android:textSize="30sp"
+                android:textSize="50sp"
 
                 android:layout_height="wrap_content">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:text="@string/right_answers"
-                android:textSize="30sp"
+                android:textSize="50sp"
                 android:id="@+id/right_answer"
                 android:layout_height="wrap_content">
             </TextView>

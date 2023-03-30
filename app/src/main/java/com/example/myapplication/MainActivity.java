@@ -9,7 +9,9 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,21 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
         int DeviceTotalWidth = metrics.widthPixels;
         int DeviceTotalHeight = metrics.heightPixels;
+        Log.d("asd", String.valueOf(DeviceTotalHeight));
 
         TextView french_learning = findViewById(R.id.french_learning);
-        french_learning.setTextSize(DeviceTotalWidth / 25);
+        french_learning.setHeight(DeviceTotalWidth / 15);
         house.setTextSize((float) DeviceTotalHeight / 100);
 
-        house.setHeight(DeviceTotalHeight / 20);
         ImageView home = findViewById(R.id.home);
+
+        Log.d("rt", String.valueOf(home.getLayoutParams()));
         home.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView animals = findViewById(R.id.animals);
         animals.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView person = findViewById(R.id.person);
-        person.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
+        person.setPadding(DeviceTotalWidth / 100, DeviceTotalHeight / 60, DeviceTotalWidth / 100, DeviceTotalHeight / 40);
         ImageView clothes = findViewById(R.id.clothes);
         clothes.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView school = findViewById(R.id.school);
@@ -67,8 +72,18 @@ public class MainActivity extends AppCompatActivity {
         nature.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
         ImageView technique = findViewById(R.id.tecknology);
         technique.setPadding(DeviceTotalWidth / 60, DeviceTotalHeight / 60, DeviceTotalWidth / 60, DeviceTotalHeight / 40);
-
-
+        animals.getLayoutParams().height=DeviceTotalHeight/6;
+        person.getLayoutParams().height=DeviceTotalHeight/6;
+        clothes.getLayoutParams().height=DeviceTotalHeight/6;
+        school.getLayoutParams().height=DeviceTotalHeight/6;
+        food.getLayoutParams().height=DeviceTotalHeight/6;
+        seasons.getLayoutParams().height=DeviceTotalHeight/6;
+        proffesions.getLayoutParams().height=DeviceTotalHeight/6;
+        character.getLayoutParams().height=DeviceTotalHeight/6;
+        home.getLayoutParams().height=DeviceTotalHeight/6;
+        travelling.getLayoutParams().height=DeviceTotalHeight/6;
+        nature.getLayoutParams().height=DeviceTotalHeight/6;
+        technique.getLayoutParams().height=DeviceTotalHeight/6;
 
 
 

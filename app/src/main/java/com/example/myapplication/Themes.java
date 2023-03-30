@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
@@ -92,7 +94,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
         Bundle extras = getIntent().getExtras();
         int which_theme = extras.getInt("which_theme");
         x.setText(String.valueOf(x_size));
-        InputStream fis =  getResources().openRawResource(R.raw.school);
+        InputStream fis =  getResources().openRawResource(R.raw.words);
 
         try {
             wb = new HSSFWorkbook(fis);
@@ -154,7 +156,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             public void onClick(View v) {
                 j=1;
                 n=1;
-                InputStream fis =  getResources().openRawResource(R.raw.school);
+                InputStream fis =  getResources().openRawResource(R.raw.words);
 
                 Workbook wb = null;
                     try {
@@ -271,6 +273,8 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
                         @Override
                         public void onClick(View v) {
                             word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT).trim();
+                            checked.setVisibility(View.VISIBLE);
+
                             if(word_from_edittext.equals(sheet.getRow(finalRow1).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                                 checked.setText("✅");
 
@@ -324,6 +328,25 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             }
         });
         Sheet finalSheet2 = sheet;
+        editText.addTextChangedListener(new TextWatcher() {
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // вызывается после изменения текста
+                checked.setVisibility(View.INVISIBLE);
+            }
+        });
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -355,6 +378,7 @@ public class Themes extends AppCompatActivity implements PopupMenu.OnMenuItemCli
             @Override
             public void onClick(View v) {
                 word_from_edittext=editText.getText().toString().toLowerCase(Locale.ROOT).trim();
+                checked.setVisibility(View.VISIBLE);
                 if(word_from_edittext.equals(finalSheet3.getRow(row).getCell(2).getStringCellValue().toLowerCase(Locale.ROOT))){
                     checked.setText("✅");
 
